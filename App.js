@@ -27,6 +27,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  Header: {
+    color: "red"
+  }
 });
 
 export default App;

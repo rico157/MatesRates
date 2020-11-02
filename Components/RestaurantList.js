@@ -1,7 +1,8 @@
 import "react-native-gesture-handler";
 import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, FlatList } from "react-native";
 import RestaurantCard from "./RestaurantCard";
+
 
 class RestaurantList extends Component {
   state = {
@@ -23,7 +24,21 @@ class RestaurantList extends Component {
   };
 
   render() {
-    return <RestaurantCard restaurants={this.state.restaurants} />;
+    return (
+      <SafeAreaView>
+      <FlatList
+        data={this.state.restaurants}
+        renderItem={({ item }) => (
+          <>
+          <Text>{item.name}</Text>
+          <Text>{item.address}</Text>
+          <Text>{item.rating}</Text>
+          </>
+        )}
+        keyExtractor={(item) => item.id}
+        />
+      </SafeAreaView>
+    )
   }
 }
 

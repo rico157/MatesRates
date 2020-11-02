@@ -15,7 +15,7 @@ const RestaurantCard = ({ restaurants }) => {
           </>
         )}
         keyExtractor={(item) => item.id}
-      />
+        />
     </SafeAreaView>
   );
 };
