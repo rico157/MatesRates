@@ -13,6 +13,12 @@ class RestaurantList extends Component {
         address: "123 Real Address Lane",
         id: 1,
       },
+      {
+        name: "Turtle Bay",
+        rating: 3,
+        address: "100 Oxford Street",
+        id: 2
+      }
     ],
   };
 
