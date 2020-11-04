@@ -1,14 +1,24 @@
+import { SearchBar } from 'react-native-elements';
 import React from 'react';
-import { View, TextInput } from 'react-native';
 
-export default function SearchBar() {
-  return (
-    <View>
-      <TextInput
-        style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-        // onChangeText={(text) => onChangeText(text)}
-        // value={value}
+export default class App extends React.Component {
+  state = {
+    search: '',
+  };
+
+  updateSearch = (search) => {
+    this.setState({ search });
+  };
+
+  render() {
+    const { search } = this.state;
+
+    return (
+      <SearchBar
+        placeholder="Type Here..."
+        onChangeText={this.updateSearch}
+        value={search}
       />
-    </View>
-  );
+    );
+  }
 }

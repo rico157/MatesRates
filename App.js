@@ -3,23 +3,27 @@ import * as React from 'react';
 import { NavigationContainer, TabActions } from '@react-navigation/native';
 import { StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from './Components/HomeComponents/HomeScreen';
+import HomeScreenNavigator from './Components/HomeComponents/HomeScreenNavigator';
 import ProfileScreen from './Components/ProfileComponents/ProfileScreen';
 import MapView from './Components/MapViewComponents/MapView';
-import SearchBar from './Components/SearchBarComponents/SearchBar';
+import SearchBarNavigator from './Components/SearchBarComponents/SearchBarNavigator';
+import Header from './Components/SharedComponents/Header';
 
 const Tab = createBottomTabNavigator();
 
 function App() {
   return (
-    <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Search" component={SearchBar} />
-        <Tab.Screen name="Map" component={MapView} />
-        <Tab.Screen name="Profile" component={ProfileScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <>
+      <Header />
+      <NavigationContainer>
+        <Tab.Navigator>
+          <Tab.Screen name="Home" component={HomeScreenNavigator} />
+          <Tab.Screen name="Search" component={SearchBarNavigator} />
+          <Tab.Screen name="Map" component={MapView} />
+          <Tab.Screen name="Profile" component={ProfileScreen} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </>
   );
 }
 
