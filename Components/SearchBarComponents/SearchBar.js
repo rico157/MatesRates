@@ -1,9 +1,11 @@
 import { SearchBar } from 'react-native-elements';
 import React from 'react';
+import mock from '../../mock';
+import RestaurantListComponent from '../SharedComponents/RestaurantListComponent';
 
 export default class App extends React.Component {
   state = {
-    search: '',
+    search: ''
   };
 
   updateSearch = (search) => {
@@ -12,13 +14,17 @@ export default class App extends React.Component {
 
   render() {
     const { search } = this.state;
+    const { restaurants } = mock;
 
     return (
-      <SearchBar
-        placeholder="Type Here..."
-        onChangeText={this.updateSearch}
-        value={search}
-      />
+      <>
+        <SearchBar
+          placeholder="Type Here..."
+          onChangeText={this.updateSearch}
+          value={search}
+        />
+        <RestaurantListComponent restaurants={restaurants} />
+      </>
     );
   }
 }

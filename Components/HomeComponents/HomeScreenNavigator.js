@@ -3,19 +3,19 @@ import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { StyleSheet, Text, View } from 'react-native';
 import Header from '../SharedComponents/Header';
-import RestaurantList from '../SharedComponents/RestaurantList';
+import RestaurantListPage from '../SharedComponents/RestaurantListPage';
 import { NavigationContainer } from '@react-navigation/native';
-import RestaurantCard from '../SharedComponents/RestaurantCard';
+import RestaurantPage from '../SharedComponents/RestaurantPage';
 
 const Stack = createStackNavigator();
 
 const HomeScreen = ({ navigation }) => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={RestaurantList}></Stack.Screen>
+      <Stack.Screen name="Home" component={RestaurantListPage}></Stack.Screen>
       <Stack.Screen
-        name="RestaurantCard"
-        component={RestaurantCard}
+        name="RestaurantPage"
+        component={RestaurantPage}
       ></Stack.Screen>
     </Stack.Navigator>
   );
