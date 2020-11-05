@@ -7,41 +7,60 @@ import {
   SafeAreaView,
   FlatList,
   Image,
-  Button
+  Button,
 } from 'react-native';
 import mock from '../../mock';
+import { useQuery, gql } from '@apollo/client';
 
-class RestaurantList extends React.Component {
-  state = {
-    isLoading: null
-  };
+const RestaurantListPage = () => {
+  const restaurants = gql`
+    {
+      restaurants {
+        name
+        cuisine
+        city {
+          name
+        }
+      }
+    }
+  `;
 
-  render() {
+  const { loading, error, data } = useQuery(restaurants);
+
+  console.log(data);
+
+  if (loading) {
     return (
-      <SafeAreaView>
-        <FlatList
-          data={mock.restaurants}
-          renderItem={({ item }) => (
-            <View style={styles.card}>
-              <Button
-                style={styles.name}
-                title={item.name}
-                onPress={() => {
-                  this.props.navigation.navigate('RestaurantPage', {
-                    restaurantId: 1
-                  });
-                }}
-              />
-              <Text>{item.address}</Text>
-              <Text>{item.rating}</Text>
-            </View>
-          )}
-          keyExtractor={(item) => item.id}
-        />
-      </SafeAreaView>
+      <View>
+        <Text>loading...</Text>
+      </View>
     );
   }
-}
+
+  return (
+    <SafeAreaView>
+      <FlatList
+        data={data.restaurants}
+        renderItem={({ item }) => (
+          <View style={styles.card}>
+            <Button
+              style={styles.name}
+              title={item.name}
+              onPress={() => {
+                this.props.navigation.navigate('RestaurantPage', {
+                  item,
+                });
+              }}
+            />
+            <Text>{item.city.name}</Text>
+            <Text>{item.cuisine}</Text>
+          </View>
+        )}
+        keyExtractor={(item) => item.id}
+      />
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
   card: {
@@ -52,11 +71,11 @@ const styles = StyleSheet.create({
     border: '1px solid darkblue',
     marginTop: '15px',
     borderLeft: '0.25',
-    borderRight: '0.25'
+    borderRight: '0.25',
   },
   name: {
-    fontSize: '30px'
-  }
+    fontSize: '30px',
+  },
 });
 
-export default RestaurantList;
+export default RestaurantListPage;

@@ -7,16 +7,40 @@ import {
   SafeAreaView,
   FlatList,
   Image,
-  Button
+  Button,
 } from 'react-native';
-import mock from '../../mock';
+import { useQuery, gql } from '@apollo/client';
 
 export default function WishList(props) {
+  const restaurants = gql`
+    {
+      restaurants {
+        name
+        cuisine
+        city {
+          name
+        }
+      }
+    }
+  `;
+
+  const { loading, error, data } = useQuery(restaurants);
+
+  console.log(data);
+
+  if (loading) {
+    return (
+      <View>
+        <Text>loading...</Text>
+      </View>
+    );
+  }
+
   return (
     <SafeAreaView>
       <Text>This is my WIshList</Text>
       <FlatList
-        data={mock.restaurants}
+        data={data.restaurants}
         renderItem={({ item }) => (
           <View style={styles.card}>
             <Button
@@ -24,12 +48,12 @@ export default function WishList(props) {
               title={item.name}
               onPress={() => {
                 props.navigation.navigate('RestaurantPage', {
-                  restaurantId: 1
+                  item,
                 });
               }}
             />
-            <Text>{item.address}</Text>
-            <Text>{item.rating}</Text>
+            <Text>{item.city.name}</Text>
+            <Text>{item.cuisine}</Text>
           </View>
         )}
         keyExtractor={(item) => item.id}
@@ -47,9 +71,9 @@ const styles = StyleSheet.create({
     border: '1px solid darkblue',
     marginTop: '15px',
     borderLeft: '0.25',
-    borderRight: '0.25'
+    borderRight: '0.25',
   },
   name: {
-    fontSize: '30px'
-  }
+    fontSize: '30px',
+  },
 });
