@@ -1,21 +1,32 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { StyleSheet, Text, View } from 'react-native';
-import Header from '../SharedComponents/Header';
-import RestaurantList from '../SharedComponents/RestaurantList';
-import { NavigationContainer } from '@react-navigation/native';
-import RestaurantCard from '../SharedComponents/RestaurantCard';
+import RestaurantPage from '../SharedComponents/RestaurantPage';
+import HomePage from './HomePage';
+import { useQuery, gql } from '@apollo/client';
 
 const Stack = createStackNavigator();
 
 const HomeScreen = ({ navigation }) => {
+  const restaurantData = gql`
+    {
+      restaurants {
+        name
+        city {
+          name
+        }
+      }
+    }
+  `;
+
+  const { loading, error, data } = useQuery(restaurantData);
+  console.log(data);
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={RestaurantList}></Stack.Screen>
+      <Stack.Screen name="Home" component={HomePage}></Stack.Screen>
       <Stack.Screen
-        name="RestaurantCard"
-        component={RestaurantCard}
+        name="RestaurantPage"
+        component={RestaurantPage}
       ></Stack.Screen>
     </Stack.Navigator>
   );
