@@ -7,7 +7,7 @@ import {
   SafeAreaView,
   FlatList,
   Image,
-  Button,
+  Button
 } from 'react-native';
 import { useQuery, gql } from '@apollo/client';
 
@@ -47,8 +47,8 @@ export default function WishList(props) {
               style={styles.name}
               title={item.name}
               onPress={() => {
-                props.navigation.navigate('RestaurantPage', {
-                  item,
+                props.navigation.navigate('Restaurant', {
+                  item
                 });
               }}
             />
@@ -71,9 +71,9 @@ const styles = StyleSheet.create({
     border: '1px solid darkblue',
     marginTop: '15px',
     borderLeft: '0.25',
-    borderRight: '0.25',
+    borderRight: '0.25'
   },
   name: {
-    fontSize: '30px',
-  },
+    fontSize: '30px'
+  }
 });

@@ -2,24 +2,20 @@ import 'react-native-gesture-handler';
 import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { StyleSheet, Text, View } from 'react-native';
-import Header from '../SharedComponents/Header';
 import { NavigationContainer } from '@react-navigation/native';
-import ProfilePage from './ProfilePage';
-import WishList from './WishListPage';
-import FriendList from './FriendListPage';
-import User from '../SharedComponents/UserPage';
-import RestaurantPage from '../SharedComponents/RestaurantPage';
+import ProfilePage from '../screens/ProfilePage';
+import WishList from '../screens/WishListPage';
+import FriendList from '../screens/FriendListPage';
+import User from '../screens//UserPage';
+import Restaurant from '../screens/RestaurantPage';
 
 const Stack = createStackNavigator();
 
-const ProfileNavigator = ({ navigation }) => {
+const ProfileNavigator = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="ProfilePage" component={ProfilePage}></Stack.Screen>
-      <Stack.Screen
-        name="RestaurantPage"
-        component={RestaurantPage}
-      ></Stack.Screen>
+      <Stack.Screen name="Profile" component={ProfilePage}></Stack.Screen>
+      <Stack.Screen name="Restaurant" component={Restaurant}></Stack.Screen>
       <Stack.Screen name="WishList" component={WishList}></Stack.Screen>
       <Stack.Screen name="FriendList" component={FriendList}></Stack.Screen>
       <Stack.Screen name="User" component={User}></Stack.Screen>
