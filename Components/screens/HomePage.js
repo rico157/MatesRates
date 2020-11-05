@@ -1,5 +1,10 @@
+// HOMEPAGE FEATURES
+
+// RECENT REVIEWED RESTAURANTS
+//         CARD: WHO RATED / HOW LONG AGO
 import 'react-native-gesture-handler';
-import React, { Component } from 'react';
+import { useQuery, gql } from '@apollo/client';
+import React, { useState, useEffect } from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,12 +12,13 @@ import {
   SafeAreaView,
   FlatList,
   Image,
-  Button,
+  Button
 } from 'react-native';
 import mock from '../../mock';
-import { useQuery, gql } from '@apollo/client';
+import RestaurantList from '../common/RestaurantList';
+import { ScrollView } from 'react-native-gesture-handler';
 
-const RestaurantListPage = () => {
+const HomePage = (props) => {
   const restaurants = gql`
     {
       restaurants {
@@ -26,9 +32,7 @@ const RestaurantListPage = () => {
   `;
 
   const { loading, error, data } = useQuery(restaurants);
-
-  console.log(data);
-
+  // console.log(error, data);
   if (loading) {
     return (
       <View>
@@ -38,7 +42,9 @@ const RestaurantListPage = () => {
   }
 
   return (
-    <SafeAreaView>
+    <ScrollView>
+      <RestaurantList restaurants={data.restaurants} {...props} />
+
       <FlatList
         data={data.restaurants}
         renderItem={({ item }) => (
@@ -47,8 +53,8 @@ const RestaurantListPage = () => {
               style={styles.name}
               title={item.name}
               onPress={() => {
-                this.props.navigation.navigate('RestaurantPage', {
-                  item,
+                props.navigation.navigate('Restaurant', {
+                  restaurant: item
                 });
               }}
             />
@@ -58,7 +64,7 @@ const RestaurantListPage = () => {
         )}
         keyExtractor={(item) => item.id}
       />
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 
@@ -71,11 +77,11 @@ const styles = StyleSheet.create({
     border: '1px solid darkblue',
     marginTop: '15px',
     borderLeft: '0.25',
-    borderRight: '0.25',
+    borderRight: '0.25'
   },
   name: {
-    fontSize: '30px',
-  },
+    fontSize: '30px'
+  }
 });
 
-export default RestaurantListPage;
+export default HomePage;

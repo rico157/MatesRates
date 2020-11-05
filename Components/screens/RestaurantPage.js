@@ -6,12 +6,13 @@ import {
   View,
   SafeAreaView,
   FlatList,
-  Button,
+  Button
 } from 'react-native';
 import { Image } from 'react-native-elements';
 
 const RestaurantPage = ({ navigation, route }) => {
-  const { name, cuisine, city } = route.params.item;
+  console.log(route);
+  const { name, cuisine, city } = route.params.restaurant;
   return (
     <View>
       <Button onPress={() => navigation.goBack()} title="Go back" />
