@@ -22,6 +22,7 @@ const HomePage = (props) => {
   const restaurants = gql`
     {
       restaurants {
+        id
         name
         cuisine
         city {

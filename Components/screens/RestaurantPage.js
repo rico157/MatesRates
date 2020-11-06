@@ -14,7 +14,7 @@ import ReviewList from '../common/ReviewList';
 
 const RestaurantPage = ({ navigation, route }) => {
   console.log(route);
-  const { name, cuisine, city } = route.params.restaurant;
+  const { name, cuisine, city, id } = route.params.restaurant;
   const { reviews } = mock;
   return (
     <View>
@@ -22,7 +22,7 @@ const RestaurantPage = ({ navigation, route }) => {
       <Text>{city.name}</Text>
       <Text>{cuisine}</Text>
       <Button
-        onPress={() => navigation.navigate('ReviewForm')}
+        onPress={() => navigation.navigate('ReviewForm', { restaurant_id: id })}
         title="Add Review"
       />
       <ReviewList reviews={reviews} />
