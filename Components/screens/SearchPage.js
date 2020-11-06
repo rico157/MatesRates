@@ -1,7 +1,7 @@
 import { SearchBar } from 'react-native-elements';
 import React from 'react';
 import mock from '../../mock';
-import RestaurantCard from '../common/RestaurantCard';
+// import RestaurantCard from '../common/RestaurantCard';
 import RestaurantList from '../common/RestaurantList';
 
 export default class App extends React.Component {
