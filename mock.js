@@ -72,29 +72,14 @@ export default {
   ],
   reviews: [
     {
-      user_id: 'oiwyy6T9JWH4IJTNW9048',
-      restaurant_id: 'kjfdh890yflsdjhf',
-      body: 'paragraph',
-      timestamp: 3764982764982,
-      rating: 3,
-      images: [
-        'https://znze11wt5g3330m4e3it6h2a73-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/Sam-Blackburn-Absolute-IT-e1531098391127.jpg'
-      ]
-    },
-    {
-      user_id: 'oiwyy6T9JWH4IJTNW9048',
-      restaurant_id: 'kjfdh890yflsdjhf',
-      body: 'paragraph',
-      timestamp: 3764982764982,
-      rating: 2,
-      images: [
-        'https://znze11wt5g3330m4e3it6h2a73-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/Sam-Blackburn-Absolute-IT-e1531098391127.jpg'
-      ]
-    },
-    {
-      user_id: 'oiwyy6T9JWH4IJTNW9048',
-      restaurant_id: 'kjfdh890yflsdjhf',
-      body: 'paragraph',
+      user: {
+        name: 'Ben',
+        avatar_url:
+          'https://znze11wt5g3330m4e3it6h2a73-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/Sam-Blackburn-Absolute-IT-e1531098391127.jpg'
+      },
+
+      body:
+        'Awful customer service Booked a table for 4. 3 from same household and 1 from a support bubble. Had a confirmation that was ok. When we arrived they said they were not accepting bubbles,even though the sign outside said bubbles were ok. Tried to seat...',
       timestamp: 3764982764982,
       rating: 5,
       images: [
@@ -102,9 +87,59 @@ export default {
       ]
     },
     {
-      user_id: 'oiwyy6T9JWH4IJTNW9048',
-      restaurant_id: 'kjfdh890yflsdjhf',
-      body: 'paragraph',
+      user: {
+        name: 'Matt',
+        avatar_url:
+          'https://znze11wt5g3330m4e3it6h2a73-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/Sam-Blackburn-Absolute-IT-e1531098391127.jpg'
+      },
+
+      body:
+        'Awful customer service Booked a table for 4. 3 from same household and 1 from a support bubble. Had a confirmation that was ok. When we arrived they said they were not accepting bubbles,even though the sign outside said bubbles were ok. Tried to seat...',
+      timestamp: 3764982764982,
+      rating: 5,
+      images: [
+        'https://znze11wt5g3330m4e3it6h2a73-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/Sam-Blackburn-Absolute-IT-e1531098391127.jpg'
+      ]
+    },
+    {
+      user: {
+        name: 'Rico',
+        avatar_url:
+          'https://znze11wt5g3330m4e3it6h2a73-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/Sam-Blackburn-Absolute-IT-e1531098391127.jpg'
+      },
+
+      body:
+        'Awful customer service Booked a table for 4. 3 from same household and 1 from a support bubble. Had a confirmation that was ok. When we arrived they said they were not accepting bubbles,even though the sign outside said bubbles were ok. Tried to seat...',
+      timestamp: 3764982764982,
+      rating: 3,
+      images: [
+        'https://znze11wt5g3330m4e3it6h2a73-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/Sam-Blackburn-Absolute-IT-e1531098391127.jpg'
+      ]
+    },
+    {
+      user: {
+        name: 'Sam',
+        avatar_url:
+          'https://znze11wt5g3330m4e3it6h2a73-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/Sam-Blackburn-Absolute-IT-e1531098391127.jpg'
+      },
+
+      body:
+        'Awful customer service Booked a table for 4. 3 from same household and 1 from a support bubble. Had a confirmation that was ok. When we arrived they said they were not accepting bubbles,even though the sign outside said bubbles were ok. Tried to seat...',
+      timestamp: 3764982764982,
+      rating: 2,
+      images: [
+        'https://znze11wt5g3330m4e3it6h2a73-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/Sam-Blackburn-Absolute-IT-e1531098391127.jpg'
+      ]
+    },
+    {
+      user: {
+        name: 'Hay',
+        avatar_url:
+          'https://znze11wt5g3330m4e3it6h2a73-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/Sam-Blackburn-Absolute-IT-e1531098391127.jpg'
+      },
+
+      body:
+        'Awful customer service Booked a table for 4. 3 from same household and 1 from a support bubble. Had a confirmation that was ok. When we arrived they said they were not accepting bubbles,even though the sign outside said bubbles were ok. Tried to seat...',
       timestamp: 3764982764982,
       rating: 1,
       images: [

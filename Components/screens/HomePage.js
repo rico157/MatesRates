@@ -32,7 +32,7 @@ const HomePage = (props) => {
   `;
 
   const { loading, error, data } = useQuery(restaurants);
-  // console.log(error, data);
+
   if (loading) {
     return (
       <View>
@@ -41,29 +41,17 @@ const HomePage = (props) => {
     );
   }
 
+  if (error) {
+    return (
+      <View>
+        <Text>error...</Text>
+      </View>
+    );
+  }
+
   return (
     <ScrollView>
       <RestaurantList restaurants={data.restaurants} {...props} />
-
-      <FlatList
-        data={data.restaurants}
-        renderItem={({ item }) => (
-          <View style={styles.card}>
-            <Button
-              style={styles.name}
-              title={item.name}
-              onPress={() => {
-                props.navigation.navigate('Restaurant', {
-                  restaurant: item
-                });
-              }}
-            />
-            <Text>{item.city.name}</Text>
-            <Text>{item.cuisine}</Text>
-          </View>
-        )}
-        keyExtractor={(item) => item.id}
-      />
     </ScrollView>
   );
 };
