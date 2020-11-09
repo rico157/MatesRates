@@ -40,16 +40,16 @@ export default function FriendList(props) {
 
 const styles = StyleSheet.create({
   card: {
-    fontSize: '20px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    border: '1px solid darkblue',
-    marginTop: '15px',
-    borderLeft: '0.25',
-    borderRight: '0.25'
+    // fontSize: '20px',
+    // display: 'flex',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    // border: '1px solid darkblue',
+    // marginTop: '15px',
+    // borderLeft: '0.25',
+    // borderRight: '0.25'
   },
   name: {
-    fontSize: '30px'
+    // fontSize: '30px'
   }
 });
