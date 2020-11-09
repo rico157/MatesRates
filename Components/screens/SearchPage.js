@@ -1,5 +1,5 @@
 import { SearchBar } from 'react-native-elements';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import mock from '../../mock';
 // import RestaurantCard from '../common/RestaurantCard';
 import RestaurantList from '../common/RestaurantList';
@@ -16,18 +16,31 @@ export default function App(props) {
 
   };
 
+  const prevRef = (value) => {
+      const ref = useRef();
+      useEffect(() => {
+        ref.current = value;
+      })
+      return ref.current;
+  }
+
+  const prevSearch = prevRef(search);
+
   useEffect(() => {
-    const copyRestaurants = [...restaurants];
-    const newRestaurants = copyRestaurants.map(restaurant => {
-      const copyRestaurant = {...restaurant};
-      return copyRestaurant;
-    });
-    const filterRestaurants = newRestaurants.filter(restaurant => {
-      return restaurant.name.toLowerCase() === search.toLowerCase();
-    });
-    console.log(filterRestaurants);
-    console.log(search);
-    setRestaurants(filterRestaurants);
+    console.log(prevSearch);
+    if (search !== prevSearch) {
+      const copyRestaurants = [...restaurants];
+      const newRestaurants = copyRestaurants.map(restaurant => {
+        const copyRestaurant = {...restaurant};
+        return copyRestaurant;
+      });
+      const filterRestaurants = newRestaurants.filter(restaurant => {
+        return restaurant.name.toLowerCase().includes(search.toLowerCase())
+      });
+      console.log(filterRestaurants);
+      console.log(search);
+      setRestaurants(filterRestaurants);
+    }
   });
 
 
@@ -44,7 +57,7 @@ export default function App(props) {
         onChangeText={updateSearch}
         value={search}
       />
-      <RestaurantList restaurants={restaurants} {...props} />
+      <RestaurantList restaurants={filteredRestaurants} {...props} />
       {/* <RestaurantCard restaurants={restaurants} /> */}
     </>
   );
