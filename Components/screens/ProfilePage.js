@@ -1,6 +1,7 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import FriendForm from '../common/FriendAdder';
 
 const ProfileScreen = ({ navigation, route }) => {
   return (
@@ -8,6 +9,7 @@ const ProfileScreen = ({ navigation, route }) => {
       <Text>Profile Screen</Text>
       <Text>Image of user</Text>
       <Text>Number of reviews</Text>
+      <FriendForm/>
       <Button
         style={styles.name}
         title="FriendList"

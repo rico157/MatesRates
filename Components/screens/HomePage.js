@@ -38,7 +38,7 @@ const HomePage = (props) => {
       </View>
     );
   }
-
+console.log(data)
   return (
     <ScrollView>
       <RestaurantList restaurants={data.restaurants} {...props} />

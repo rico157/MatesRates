@@ -31,7 +31,7 @@ const ReviewForm = ({ navigation, route }) => {
           const finalState = {
             rating,
             body,
-            user_id: "5fa28b052c117a5240501f6e",
+            user_id: "5fa91e3486083c1f16e6ffa7",
             restaurant_id
           };
           addReview({ variables: { ...finalState } });

@@ -5,3 +5,11 @@ export const averageRatings = (ratings) => {
     const average = total / arrayOfRatings.length
     return average.toFixed(1);
   }
+
+  export const idLookup = (username, array) => {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].username === username) {
+        return array[i].id
+      }
+    }
+  }

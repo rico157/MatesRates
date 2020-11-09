@@ -42,3 +42,25 @@ export const RESTAURANTS =  gql`
   }
 `;
 
+export const ADD_FRIEND = gql `
+mutation AddFriend(
+  $user_id: String!
+  $friend_id: String!
+) {
+  addFriend(
+    user_id: $user_id
+    friend_id: $friend_id
+  ) {
+    name
+  }
+}`
+
+export const GET_USERS = gql `
+{
+  users {
+    id
+    name
+    username
+    avatarURL
+  }
+}`
