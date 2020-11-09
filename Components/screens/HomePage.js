@@ -14,25 +14,13 @@ import {
   Image,
   Button
 } from 'react-native';
-import mock from '../../mock';
 import RestaurantList from '../common/RestaurantList';
 import { ScrollView } from 'react-native-gesture-handler';
+import {RESTAURANTS} from "../../utils/queries"
 
 const HomePage = (props) => {
-  const restaurants = gql`
-    {
-      restaurants {
-        id
-        name
-        cuisine
-        city {
-          name
-        }
-      }
-    }
-  `;
 
-  const { loading, error, data } = useQuery(restaurants);
+  const { loading, error, data } = useQuery(RESTAURANTS);
 
   if (loading) {
     return (
@@ -43,6 +31,7 @@ const HomePage = (props) => {
   }
 
   if (error) {
+    console.log(error);
     return (
       <View>
         <Text>error...</Text>
