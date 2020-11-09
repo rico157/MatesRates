@@ -1,29 +1,29 @@
-import {gql} from "@apollo/client"
+import { gql } from '@apollo/client';
 
-export const RESTAURANTS =  gql`
-    {
-        restaurants {
-        id
+export const RESTAURANTS = gql`
+  {
+    restaurants {
+      id
+      name
+      cuisine
+      logo
+      reviews {
+        body
+        rating
+        user_id {
+          id
+          name
+          avatarURL
+        }
+      }
+      city {
         name
-        cuisine
-        reviews{
-            body
-            rating
-        user_id{
-            id
-            name
-            avatarURL
-        } 
-        }
-        city {
-            name
-        }
+      }
     }
   }
+`;
 
-  `
-
-  export const ADD_REVIEW = gql`
+export const ADD_REVIEW = gql`
   mutation AddReview(
     $rating: Int!
     $body: String!
@@ -41,4 +41,3 @@ export const RESTAURANTS =  gql`
     }
   }
 `;
-

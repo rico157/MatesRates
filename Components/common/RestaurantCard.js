@@ -10,14 +10,14 @@ const users = [
 ];
 
 export default ({ restaurant, navigation }) => {
-  const { name, img, city } = restaurant;
+  const { name, img, city, logo } = restaurant;
   return (
     <Card style={styles.card}>
       <Card.Title>{name}</Card.Title>
       <Card.Divider />
       <Card.Image
         source={{
-          uri: img
+          uri: logo
         }}
       />
       <Text style={{ marginBottom: 10, textAlign: 'center' }}>{city.name}</Text>

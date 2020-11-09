@@ -10,15 +10,20 @@ import {
   Button
 } from 'react-native';
 import { useQuery, gql } from '@apollo/client';
+import RestaurantList from '../common/RestaurantList';
 
 export default function WishList(props) {
   const restaurants = gql`
     {
-      restaurants {
-        name
-        cuisine
-        city {
+      user(id: "5fa91e3486083c1f16e6ffa4") {
+        wishlist {
+          id
           name
+          cuisine
+          logo
+          city {
+            name
+          }
         }
       }
     }
@@ -39,25 +44,7 @@ export default function WishList(props) {
   return (
     <SafeAreaView>
       <Text>This is my WIshList</Text>
-      <FlatList
-        data={data.restaurants}
-        renderItem={({ item }) => (
-          <View style={styles.card}>
-            <Button
-              style={styles.name}
-              title={item.name}
-              onPress={() => {
-                props.navigation.navigate('Restaurant', {
-                  item
-                });
-              }}
-            />
-            <Text>{item.city.name}</Text>
-            <Text>{item.cuisine}</Text>
-          </View>
-        )}
-        keyExtractor={(item) => item.id}
-      />
+      <RestaurantList restaurants={data.user.wishlist} {...props} />
     </SafeAreaView>
   );
 }
