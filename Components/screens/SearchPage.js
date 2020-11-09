@@ -1,33 +1,52 @@
 import { SearchBar } from 'react-native-elements';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import mock from '../../mock';
 // import RestaurantCard from '../common/RestaurantCard';
 import RestaurantList from '../common/RestaurantList';
+import {RESTAURANTS} from '../../utils/queries';
+import { useQuery } from '@apollo/client';
 
-export default class App extends React.Component {
-  state = {
-    search: 'BarBurrito'
+export default function App(props) {
+  const [ search, setSearch ] = useState('');
+  const [ filteredRestaurants, setRestaurants ] = useState([]);
+  const { loading, error, data } = useQuery(RESTAURANTS);
+  const { restaurants } = data;
+  const updateSearch = (search) => {
+    setSearch(search);
+
   };
 
-  updateSearch = (search) => {
-    this.setState({ search });
+  useEffect(() => {
+    const copyRestaurants = [...restaurants];
+    const newRestaurants = copyRestaurants.map(restaurant => {
+      const copyRestaurant = {...restaurant};
+      return copyRestaurant;
+    });
+    const filterRestaurants = newRestaurants.filter(restaurant => {
+      return restaurant.name.toLowerCase() === search.toLowerCase();
+    });
+    console.log(filterRestaurants);
+    console.log(search);
+    setRestaurants(filterRestaurants);
+  });
+
+
+  const searchFilterFunction = (text) => {
+    if (text) {
+
+    }
   };
 
-  render() {
-    console.log(this.props);
-    const { search } = this.state;
-    const { restaurants } = mock;
-
-    return (
-      <>
-        <SearchBar
-          placeholder="Type Here..."
-          onChangeText={this.updateSearch}
-          value={search}
-        />
-        <RestaurantList restaurants={restaurants} {...this.props} />
-        {/* <RestaurantCard restaurants={restaurants} /> */}
-      </>
-    );
-  }
+  return (
+    <>
+      <SearchBar
+        placeholder="Type Here..."
+        onChangeText={updateSearch}
+        value={search}
+      />
+      <RestaurantList restaurants={restaurants} {...props} />
+      {/* <RestaurantCard restaurants={restaurants} /> */}
+    </>
+  );
+  
 }

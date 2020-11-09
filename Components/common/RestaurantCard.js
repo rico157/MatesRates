@@ -42,18 +42,18 @@ export default ({ restaurant, navigation }) => {
 
 const styles = StyleSheet.create({
   card: {
-    fontSize: '20px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    border: '1px solid darkblue',
-    marginTop: '15px',
-    borderLeft: '0.25',
-    borderRight: '0.25',
-    width: '100'
+    // fontSize: 20,
+    // display: 'flex',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    // border: '1px solid darkblue',
+    // marginTop: 15,
+    // borderLeft: '0.25',
+    // borderRight: '0.25',
+    // width: '100'
   },
   name: {
-    fontSize: '30px'
+    // fontSize: 30
   },
   image: {},
   users: {}
