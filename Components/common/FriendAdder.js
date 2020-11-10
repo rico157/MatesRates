@@ -26,7 +26,8 @@ const FriendForm = () => {
               user_id: "5fa91e3486083c1f16e6ffa4",
               friend_id: friend
             }
-          }).then(()=>{
+          }).then((res)=>{
+            console.log(res)
             setUsername("")
           }).catch((e) => 
             alert("user not found")

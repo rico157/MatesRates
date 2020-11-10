@@ -62,5 +62,22 @@ export const GET_USERS = gql`
     name
     username
     avatarURL
+    friends {
+      name
+      avatarURL
+    }
+  }
+}`
+
+export const GET_USER = gql`
+{
+  user(
+    id: "5fa91e3486083c1f16e6ffa4"
+  ) {
+    friends {
+      username
+      name
+      avatarURL
+    }
   }
 }`
