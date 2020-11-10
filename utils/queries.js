@@ -44,7 +44,7 @@ export const ADD_REVIEW = gql`
 
 export const ADD_FRIEND = gql`
 mutation AddFriend(
-  $user_id: String!
+  $user_id: ID!
   $friend_id: String!
 ) {
   addFriend(
