@@ -7,8 +7,8 @@ import RestaurantCard from './RestaurantCard';
 export default ({ restaurants, navigation }) => {
   return (
     <ScrollView>
-      {restaurants.map((l, i) => (
-        <RestaurantCard restaurant={l} navigation={navigation} />
+      {restaurants.map((restaurant) => (
+        <RestaurantCard restaurant={restaurant} navigation={navigation} />
       ))}
     </ScrollView>
   );

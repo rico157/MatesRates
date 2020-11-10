@@ -9,16 +9,24 @@ import {
   Button
 } from 'react-native';
 import { Image } from 'react-native-elements';
+import mock from '../../mock';
+import ReviewList from '../common/ReviewList';
+import { averageRatings } from '../../utils/utils';
+
 
 const RestaurantPage = ({ navigation, route }) => {
-  console.log(route);
-  const { name, cuisine, city } = route.params.restaurant;
+  const { name, cuisine, city, id, reviews } = route.params.restaurant;
   return (
     <View>
-      <Button onPress={() => navigation.goBack()} title="Go back" />
       <Text>{name}</Text>
       <Text>{city.name}</Text>
       <Text>{cuisine}</Text>
+      <Text>{averageRatings(reviews)}</Text>
+      <Button
+        onPress={() => navigation.navigate('ReviewForm', { restaurant_id: id })}
+        title="Add Review"
+      />
+      <ReviewList reviews={reviews} />
     </View>
   );
 };
