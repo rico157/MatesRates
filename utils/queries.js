@@ -41,9 +41,8 @@ export const ADD_REVIEW = gql`
     }
   }
 `;
-<<<<<<< HEAD
 
-export const ADD_FRIEND = gql `
+export const ADD_FRIEND = gql`
 mutation AddFriend(
   $user_id: String!
   $friend_id: String!
@@ -56,7 +55,7 @@ mutation AddFriend(
   }
 }`
 
-export const GET_USERS = gql `
+export const GET_USERS = gql`
 {
   users {
     id
@@ -65,5 +64,3 @@ export const GET_USERS = gql `
     avatarURL
   }
 }`
-=======
->>>>>>> 675af32475044b7645acd6d8b1d0b893263e80a0
