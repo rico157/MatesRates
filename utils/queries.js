@@ -100,3 +100,13 @@ export const GET_USER = gql`
     }
   }
 `;
+
+export const ALL_RESTAURANTS_IN_WISHLIST = gql`
+  {
+    users {
+      wishlist {
+        id
+      }
+    }
+  }
+`;
