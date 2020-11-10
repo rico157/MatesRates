@@ -1,6 +1,10 @@
+import { useMutation } from '@apollo/client';
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { Card, Button, Icon, ListItem, Avatar } from 'react-native-elements';
+import { ADD_TO_WISHLIST } from '../../utils/queries';
+import WishlistButton from './WishlistButton';
+
 
 const users = [
   {
@@ -10,7 +14,10 @@ const users = [
 ];
 
 export default ({ restaurant, navigation }) => {
-  const { name, img, city, logo } = restaurant;
+  const { name, img, city, logo, id } = restaurant;
+  const [ addWishlist, data ] = useMutation(ADD_TO_WISHLIST);
+  console.log(data.error);
+  console.log(id);
   return (
     <Card style={styles.card}>
       <Card.Title>{name}</Card.Title>
@@ -36,6 +43,7 @@ export default ({ restaurant, navigation }) => {
         }}
         title="VIEW NOW"
       />
+      <WishlistButton restaurant_id={id}/>
     </Card>
   );
 };

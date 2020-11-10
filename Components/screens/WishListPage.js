@@ -11,27 +11,13 @@ import {
 } from 'react-native';
 import { useQuery, gql } from '@apollo/client';
 import RestaurantList from '../common/RestaurantList';
+import { WISHLIST } from '../../utils/queries';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function WishList(props) {
-  const restaurants = gql`
-    {
-      user(id: "5fa91e3486083c1f16e6ffa4") {
-        wishlist {
-          id
-          name
-          cuisine
-          logo
-          city {
-            name
-          }
-        }
-      }
-    }
-  `;
 
-  const { loading, error, data } = useQuery(restaurants);
+  const { loading, error, data } = useQuery(WISHLIST);
 
-  console.log(data);
 
   if (loading) {
     return (
@@ -41,11 +27,19 @@ export default function WishList(props) {
     );
   }
 
+  if (error) {
+    return (
+      <View>
+        <Text>Error...</Text>
+      </View>
+    );
+  }
+
   return (
-    <SafeAreaView>
+    <ScrollView>
       <Text>This is my WIshList</Text>
       <RestaurantList restaurants={data.user.wishlist} {...props} />
-    </SafeAreaView>
+    </ScrollView>
   );
 }
 
