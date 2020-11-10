@@ -29,9 +29,7 @@ export default function WishList(props) {
     }
   `;
 
-  const { loading, error, data } = useQuery(restaurants);
-
-  console.log(data);
+  const { loading, error, data } = useQuery(WISHLIST);
 
   if (loading) {
     return (
@@ -41,11 +39,19 @@ export default function WishList(props) {
     );
   }
 
+  if (error) {
+    return (
+      <View>
+        <Text>Error...</Text>
+      </View>
+    );
+  }
+
   return (
-    <SafeAreaView>
+    <ScrollView>
       <Text>This is my WIshList</Text>
       <RestaurantList restaurants={data.user.wishlist} {...props} />
-    </SafeAreaView>
+    </ScrollView>
   );
 }
 

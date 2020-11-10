@@ -43,41 +43,36 @@ export const ADD_REVIEW = gql`
 `;
 
 export const ADD_FRIEND = gql`
-mutation AddFriend(
-  $user_id: ID!
-  $friend_id: String!
-) {
-  addFriend(
-    user_id: $user_id
-    friend_id: $friend_id
-  ) {
-    name
+  mutation AddFriend($user_id: ID!, $friend_id: String!) {
+    addFriend(user_id: $user_id, friend_id: $friend_id) {
+      name
+    }
   }
-}`;
+`;
 
 export const GET_USERS = gql`
-{
-  users {
-    id
-    name
-    username
-    avatarURL
-    friends {
+  {
+    users {
+      id
       name
+      username
       avatarURL
+      friends {
+        name
+        avatarURL
+      }
     }
   }
-}`
+`;
 
 export const GET_USER = gql`
-{
-  user(
-    id: "5fa91e3486083c1f16e6ffa4"
-  ) {
-    friends {
-      username
-      name
-      avatarURL
+  {
+    user(id: "5fa91e3486083c1f16e6ffa4") {
+      friends {
+        username
+        name
+        avatarURL
+      }
     }
   }
-}`
+`;
