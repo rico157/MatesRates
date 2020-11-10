@@ -1,20 +1,14 @@
-import { useMutation } from '@apollo/client';
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
-import { Card, Button, Icon, ListItem, Avatar } from 'react-native-elements';
-import { ADD_TO_WISHLIST } from '../../utils/queries';
+import { Text, StyleSheet } from 'react-native';
+import { Card, Button, Icon } from 'react-native-elements';
+import { wishlistCount } from '../../utils/utils';
+
 import WishlistButton from './WishlistButton';
 
-const users = [
-  {
-    name: 'brynn',
-    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
-  }
-];
+export default ({ restaurant, wishlist, navigation }) => {
+  const { name, city, logo, id } = restaurant;
 
-export default ({ restaurant, navigation }) => {
-  const { name, img, city, logo, id } = restaurant;
-  const [addWishlist, data] = useMutation(ADD_TO_WISHLIST);
+  const count = wishlistCount(wishlist, id);
 
   return (
     <Card style={styles.card}>
@@ -42,6 +36,7 @@ export default ({ restaurant, navigation }) => {
         title="VIEW NOW"
       />
       <WishlistButton restaurant_id={id} />
+      <Text>Wished by: {count}</Text>
     </Card>
   );
 };

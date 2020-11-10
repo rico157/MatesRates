@@ -4,11 +4,15 @@ import { ListItem, Avatar } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
 import RestaurantCard from './RestaurantCard';
 
-export default ({ restaurants, navigation }) => {
+export default ({ restaurants, wishlist, navigation }) => {
   return (
     <ScrollView>
       {restaurants.map((restaurant) => (
-        <RestaurantCard restaurant={restaurant} navigation={navigation} />
+        <RestaurantCard
+          wishlist={wishlist}
+          restaurant={restaurant}
+          navigation={navigation}
+        />
       ))}
     </ScrollView>
   );
