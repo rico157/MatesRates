@@ -13,7 +13,9 @@ const users = [
 ];
 
 export default ({ restaurant, navigation }) => {
-  const { name, img, city, logo } = restaurant;
+  const { name, img, city, logo, id } = restaurant;
+  const [addWishlist, data] = useMutation(ADD_TO_WISHLIST);
+
   return (
     <Card style={styles.card}>
       <Card.Title>{name}</Card.Title>
