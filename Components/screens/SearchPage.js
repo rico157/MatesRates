@@ -1,4 +1,4 @@
-import { BottomSheet, SearchBar } from 'react-native-elements';
+import { SearchBar } from 'react-native-elements';
 import React, { useEffect, useState, useRef } from 'react';
 import RestaurantList from '../common/RestaurantList';
 import { RESTAURANTS } from '../../utils/queries';
@@ -37,13 +37,6 @@ export default function App(props) {
       return copyRestaurant;
     });
 
-    console.log("current city state: ", cityFilter);
-    console.log("current cuisine state: ", cuisineFilter);
-    console.log("prev city state: " ,prevCityFilter);
-    console.log("prev cuisine state: " ,prevFilter);
-
-    let filterRestaurants;
-
     if (prevCityFilter !== cityFilter && cityFilter === 'All Cities') {
       setRestaurants(newRestaurants);
     }
@@ -52,30 +45,27 @@ export default function App(props) {
       setRestaurants(newRestaurants);
     }
 
-    if (prevCityFilter !== cityFilter || prevFilter !== cuisineFilter && cityFilter !== 'All Cities' && cuisineFilter !== 'All Cuisines') {
-      filterRestaurants = newRestaurants.filter(restaurant => {
-        return restaurant.city.name === cityFilter && restaurant.cuisine === cuisineFilter
+    if (prevCityFilter !== cityFilter || prevFilter !== cuisineFilter) {
+      const filterRestaurants = newRestaurants.filter((restaurant) => {
+        if (cityFilter === 'All Cities' && cuisineFilter === 'All Cuisines') {
+          return true;
+        }
+        if (cityFilter === 'All Cities' && cuisineFilter !== 'All Cuisines') {
+          return restaurant.cuisine === cuisineFilter;
+        }
+        if (cuisineFilter === 'All Cuisines' && cityFilter !== 'All Cities') {
+          return restaurant.city.name === cityFilter;
+        }
+        return (
+          restaurant.city.name === cityFilter &&
+          restaurant.cuisine === cuisineFilter
+        );
       });
-      console.log(filterRestaurants);
-      setRestaurants(filterRestaurants);
-    } 
-    
-    if (prevCityFilter !== cityFilter && cityFilter !== 'All Cities' && cuisineFilter === 'All Cuisines' && cuisineFilter === prevFilter) {
-      filterRestaurants = newRestaurants.filter((restaurant) => {
-        return restaurant.city.name === cityFilter
-      });
-      // console.log(filterRestaurants);
-      setRestaurants(filterRestaurants);
-    }
-    
-    if (prevFilter !== cuisineFilter && cuisineFilter !== 'All Cuisines' && cityFilter === 'All Cities' && cityFilter === prevCityFilter) {
-      //filter by cuisine
-      filterRestaurants = newRestaurants.filter((restaurant) => {
-        return restaurant.cuisine === cuisineFilter;
-      });
-      // console.log(filterRestaurants);
       setRestaurants(filterRestaurants);
     }
+
+    let filterRestaurants;
+
     if (search !== prevSearch) {
       setCuisine('All Cuisines');
       setCity('All Cities');
@@ -89,11 +79,11 @@ export default function App(props) {
   });
 
   const cities = [];
-  restaurants.forEach(restaurant => {
+  restaurants.forEach((restaurant) => {
     if (!cities.some((city) => city.city.name === restaurant.city.name)) {
       cities.push(restaurant);
     }
-  })
+  });
 
   const cuisine = [];
   restaurants.forEach((r) => {
@@ -104,6 +94,32 @@ export default function App(props) {
 
   return (
     <>
+      <DropDownPicker
+        items={[
+          {
+            label: 'All Cuisines',
+            value: 'All Cuisines',
+            icon: () => <Icon name="flag" size={18} color="#900" />,
+            hidden: false,
+          },
+          ...cuisine.map((r) => {
+            return {
+              label: r.cuisine,
+              value: r.cuisine,
+              icon: () => <Icon name="flag" size={18} color="#900" />,
+              hidden: false,
+            };
+          }),
+        ]}
+        defaultValue={cuisineFilter}
+        containerStyle={{ height: 40 }}
+        style={{ backgroundColor: '#fafafa' }}
+        itemStyle={{
+          justifyContent: 'flex-start',
+        }}
+        onChangeItem={(item) => setCuisine(item.value)}
+        dropDownStyle={{ backgroundColor: '#fafafa' }}
+      />
       <SearchBar
         placeholder="Type Here..."
         onChangeText={updateSearch}
@@ -112,55 +128,29 @@ export default function App(props) {
       <DropDownPicker
         items={[
           {
-            label: 'All Cuisines',
-            value: 'All Cuisines',
+            label: 'All Cities',
+            value: 'All Cities',
             icon: () => <Icon name="flag" size={18} color="#900" />,
-            hidden: false
+            hidden: false,
           },
-          ...cuisine.map((r) => {
+          ...cities.map((restaurant) => {
             return {
-              label: r.cuisine,
-              value: r.cuisine,
+              label: restaurant.city.name,
+              value: restaurant.city.name,
               icon: () => <Icon name="flag" size={18} color="#900" />,
-              hidden: false
+              hidden: false,
             };
-          })
+          }),
         ]}
-        defaultValue={cuisineFilter}
+        defaultValue={cityFilter}
         containerStyle={{ height: 40 }}
         style={{ backgroundColor: '#fafafa' }}
         itemStyle={{
-          justifyContent: 'flex-start'
+          justifyContent: 'flex-start',
         }}
-        onChangeItem={(item) => setCuisine(item.value)}
+        onChangeItem={(item) => setCity(item.value)}
         dropDownStyle={{ backgroundColor: '#fafafa' }}
       />
-        <DropDownPicker
-          items={[
-            {
-              label: 'All Cities',
-              value: 'All Cities',
-              icon: () => <Icon name="flag" size={18} color="#900" />,
-              hidden: false
-            },
-            ...cities.map((restaurant) => {
-              return {
-                label: restaurant.city.name,
-                value: restaurant.city.name,
-                icon: () => <Icon name="flag" size={18} color="#900" />,
-                hidden: false
-              };
-            })
-          ]}
-          defaultValue={cityFilter}
-          containerStyle={{ height: 40 }}
-          style={{ backgroundColor: '#fafafa' }}
-          itemStyle={{
-            justifyContent: 'flex-start'
-          }}
-          onChangeItem={(item) => setCity(item.value)}
-          dropDownStyle={{ backgroundColor: '#fafafa' }}
-        />
       <RestaurantList restaurants={filteredRestaurants} {...props} />
     </>
   );

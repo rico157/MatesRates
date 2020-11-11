@@ -14,8 +14,8 @@ const Tab = createBottomTabNavigator();
 function App() {
   // maybe put this outside --> line 16
   const client = new ApolloClient({
-    uri: 'http://localhost:4000/graphql',
-    cache: new InMemoryCache()
+    uri: 'https://matesrates.herokuapp.com/graphql',
+    cache: new InMemoryCache(),
   });
   // <--
 
@@ -40,11 +40,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   Header: {
-    color: 'red'
-  }
+    color: 'red',
+  },
 });
 
 export default App;
