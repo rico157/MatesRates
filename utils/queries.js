@@ -92,7 +92,10 @@ export const GET_USERS = gql`
 
 export const GET_USER = gql`
   {
-    user(id: "5fabb8bbc919d40cd354493d") {
+    user(id: "5fad260e67e198546f443747") {
+      id
+      name
+      avatarURL
       friends {
         username
         name

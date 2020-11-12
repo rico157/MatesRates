@@ -1,17 +1,48 @@
 import 'react-native-gesture-handler';
-import * as React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+// import * as React from 'react';
+import React, {useState} from "react"
+import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import FriendForm from '../common/FriendAdder';
+import {GET_USER} from "../../utils/queries"
+import {useQuery} from "@apollo/client"
+import { Avatar, Accessory } from 'react-native-elements'
+import styles from "../../Styling/global-style"
 
 const ProfileScreen = ({ navigation, route }) => {
+  const { data, loading, error } = useQuery(GET_USER);
+  console.log(data)
+  if(loading) {
+    return (
+      <View>
+        <Text>Loading...</Text>
+      </View>
+    )
+  }
+  if(error) {
+    return (
+      <View>
+        <Text>error</Text>
+      </View>
+    )
+  }
+  //console.log("Avatar-->", data.user.avatarURL)
   return (
-    <View>
-      <Text>Profile Screen</Text>
-      <Text>Image of user</Text>
-      <Text>Number of reviews</Text>
-      <FriendForm/>
+    <View style={styles.cardContainer}>
+      <Text style={styles.headerText}
+      >{data.user.name}'s Profile</Text>
+    
+      <Avatar
+        rounded
+        size="large"
+        source={{
+          uri: data.user.avatarURL,
+        }}
+      />
+
+      <Text style={styles.contentText}>Number of friends: {data.user.friends.length}</Text>
+
       <Button
-        style={styles.name}
+        color= "#4E2D3E"
         title="FriendList"
         onPress={() => {
           navigation.navigate('FriendList');
@@ -20,7 +51,7 @@ const ProfileScreen = ({ navigation, route }) => {
         FriendList with preview BUTTON
       </Button>
       <Button
-        style={styles.name}
+        color= "#4E2D3E"
         title="Wishlist"
         onPress={() => {
           navigation.navigate('WishList');
@@ -32,19 +63,10 @@ const ProfileScreen = ({ navigation, route }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  // card: {
-  //   fontSize: '20px',
-  //   display: 'flex',
-  //   alignItems: 'center',
-  //   justifyContent: 'center',
-  //   border: '1px solid darkblue',
-  //   marginTop: '15px',
-  //   borderLeft: '0.25',
-  //   borderRight: '0.25'
-  // },
-  name: {
-    // fontSize: 30
+const avatar = StyleSheet.create({
+  logo: {
+    width: 50,
+    height: 100
   }
 });
 

@@ -15,15 +15,15 @@ const styles = StyleSheet.create({
     alignContent: "center",
   },
   cardContainer: {
-    backgroundColor: "F8A677",
-    alignContent: "center",
-    flex: 1,
+    backgroundColor: "#F8A677",
+    alignItems: "center",
+    flex: 1
   },
   imageContainer: {
     resizeMode: "contain",
   },
   appButtonContainer: {
-    backgroundColor: "4E2D3E",
+    backgroundColor: "#4E2D3E",
     borderRadius: 10,
     paddingVertical: 10,
     paddingHorizontal: 12,
