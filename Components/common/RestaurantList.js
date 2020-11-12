@@ -10,6 +10,7 @@ export default ({ restaurants, wishlist, navigation }) => {
     <ScrollView style={{ backgroundColor: "#F8A677" }}>
       {restaurants.map((restaurant) => (
         <RestaurantCard
+          key={restaurant.id}
           wishlist={wishlist}
           restaurant={restaurant}
           navigation={navigation}
