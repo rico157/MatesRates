@@ -1,11 +1,13 @@
-import "react-native-gesture-handler";
-import * as React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
-import Restaurant from "../screens/RestaurantPage";
-import ReviewForm from "../screens/ReviewFormPage";
-import Home from "../screens/HomePage";
-import { useQuery, gql } from "@apollo/client";
-import LogoTitle from "../common/LogoTitle";
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import Restaurant from '../screens/RestaurantPage';
+import ReviewForm from '../screens/ReviewFormPage';
+import Home from '../screens/HomePage';
+import { useQuery, gql } from '@apollo/client';
+import LogoTitle from '../common/LogoTitle';
+import { View, Text } from 'react-native';
+import { iOSUIKit, iOSColors } from 'react-native-typography';
 
 const Stack = createStackNavigator();
 
@@ -15,7 +17,30 @@ const HomeScreenNavigator = () => {
       <Stack.Screen
         name="Home"
         component={Home}
-        options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+        options={{
+          headerLayoutPreset: 'center',
+          headerTitleStyle: { alignSelf: 'center' },
+          headerStyle: {
+            alignSelf: 'center',
+            backgroundColor: '#5C374C'
+          },
+
+          headerTitle: (props) => (
+            <View
+              style={{ flexDirection: 'row', justifyContent: 'flex-start' }}
+            >
+              <LogoTitle {...props} />
+              <Text
+                style={[
+                  iOSUIKit.largeTitleEmphasized,
+                  { color: iOSColors.white }
+                ]}
+              >
+                Mates Rates
+              </Text>
+            </View>
+          )
+        }}
       ></Stack.Screen>
       <Stack.Screen
         name="Restaurant"

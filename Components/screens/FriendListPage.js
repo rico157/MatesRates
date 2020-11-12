@@ -10,13 +10,13 @@ import {
   Button
 } from 'react-native';
 
-import {GET_USER} from "../../utils/queries"
+import { GET_USER } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 
 export default function FriendList(props) {
   const [user, setUser] = useState({});
 
-  const { loading, error, data } = useQuery(GET_USER)
+  const { loading, error, data } = useQuery(GET_USER);
   if (loading) {
     return (
       <View>
@@ -26,15 +26,13 @@ export default function FriendList(props) {
   }
 
   if (error) {
-    console.log(error);
     return (
       <View>
         <Text>error...</Text>
       </View>
     );
   }
- 
-  console.log(data);
+
   return (
     <SafeAreaView>
       <Text>This is my FriendList</Text>
