@@ -10,8 +10,6 @@ const ReviewForm = ({ navigation, route }) => {
   const [body, setBody] = useState('');
   const [addReview] = useMutation(ADD_REVIEW);
 
-  console.log(navigation);
-
   return (
     <View>
       <AirbnbRating
@@ -31,7 +29,7 @@ const ReviewForm = ({ navigation, route }) => {
           const finalState = {
             rating,
             body,
-            user_id: '5fabb8bbc919d40cd354493d',
+            user_id: '5fad260e67e198546f443747',
             restaurant_id
           };
           addReview({ variables: { ...finalState } });

@@ -38,7 +38,6 @@ const FriendForm = () => {
             }
           })
             .then((res) => {
-              console.log(res);
               setUsername('');
             })
             .catch((e) => alert('user not found'));

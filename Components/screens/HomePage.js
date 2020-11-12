@@ -9,6 +9,7 @@ import {
   RESTAURANTS,
   GET_USERS
 } from '../../utils/queries';
+import Loader from '../common/Loader';
 
 const HomePage = (props) => {
   const users = useQuery(GET_USERS);
@@ -16,11 +17,7 @@ const HomePage = (props) => {
   const wishlist = useQuery(ALL_RESTAURANTS_IN_WISHLIST);
 
   if (loading || wishlist.loading) {
-    return (
-      <View>
-        <Text>loading...</Text>
-      </View>
-    );
+    return <Loader />;
   }
 
   if (error) {
@@ -32,7 +29,7 @@ const HomePage = (props) => {
   }
 
   return (
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: '#5C374C' }}>
       <RestaurantList
         restaurants={data.restaurants}
         wishlist={wishlist.data}
