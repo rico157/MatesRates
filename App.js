@@ -15,7 +15,9 @@ function App() {
   // maybe put this outside --> line 16
   const client = new ApolloClient({
     uri: 'https://matesrates.herokuapp.com/graphql',
+
     cache: new InMemoryCache()
+
   });
 
   return (
@@ -39,11 +41,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   Header: {
-    color: 'red'
-  }
+    color: 'red',
+  },
 });
 
 export default App;
