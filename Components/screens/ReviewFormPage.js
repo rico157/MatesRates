@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 import { Input, AirbnbRating, Button } from 'react-native-elements';
 import { gql, useMutation } from '@apollo/client';
-import {ADD_REVIEW} from '../../utils/queries'
+import { ADD_REVIEW } from '../../utils/queries';
 
 const ReviewForm = ({ navigation, route }) => {
   const { restaurant_id } = route.params;
@@ -31,11 +31,11 @@ const ReviewForm = ({ navigation, route }) => {
           const finalState = {
             rating,
             body,
-            user_id: "5fa91e3486083c1f16e6ffa7",
+            user_id: '5fabb8bbc919d40cd354493d',
             restaurant_id
           };
           addReview({ variables: { ...finalState } });
-          navigation.goBack()
+          navigation.goBack();
         }}
       />
     </View>

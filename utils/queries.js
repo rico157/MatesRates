@@ -25,7 +25,7 @@ export const RESTAURANTS = gql`
 
 export const WISHLIST = gql`
   {
-    user(id: "5fa91e3486083c1f16e6ffa4") {
+    user(id: "5fabb8bbc919d40cd354493d") {
       wishlist {
         id
         name
@@ -82,6 +82,7 @@ export const GET_USERS = gql`
       username
       avatarURL
       friends {
+        id
         name
         avatarURL
       }
@@ -91,7 +92,7 @@ export const GET_USERS = gql`
 
 export const GET_USER = gql`
   {
-    user(id: "5fa91e3486083c1f16e6ffa4") {
+    user(id: "5fabb8bbc919d40cd354493d") {
       friends {
         username
         name
