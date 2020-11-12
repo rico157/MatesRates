@@ -19,10 +19,9 @@ const HomeScreenNavigator = () => {
         component={Home}
         options={{
           headerLayoutPreset: 'center',
-          headerTitleStyle: { alignSelf: 'center' },
           headerStyle: {
-            alignSelf: 'center',
-            backgroundColor: '#5C374C'
+            backgroundColor: '#5C374C',
+            marginTop: 300
           },
 
           headerTitle: (props) => (

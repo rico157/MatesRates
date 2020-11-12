@@ -1,6 +1,7 @@
 import { View } from 'react-native';
 import React from 'react';
 import { Image } from 'react-native';
+import pizza from '../../assets/pizza.png';
 
 export default function Loader() {
   return (
@@ -15,12 +16,12 @@ export default function Loader() {
     >
       <Image
         style={{
-          width: 400,
-          height: 400,
+          width: 350,
+          height: 340,
           marginRight: 25,
           marginLeft: 15
         }}
-        source={require('../../Styling/pizza.svg')}
+        source={pizza}
       />
     </View>
   );
