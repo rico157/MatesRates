@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const RESTAURANTS = gql`
   {
@@ -94,6 +94,10 @@ export const GET_USERS = gql`
 export const GET_USER = gql`
   {
     user(id: "5fad52e16b765b6024a6da5d") {
+      id
+      name
+      username
+      avatarURL
       friends {
         username
         name

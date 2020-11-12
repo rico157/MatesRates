@@ -15,10 +15,9 @@ const Tab = createBottomTabNavigator();
 function App() {
   // maybe put this outside --> line 16
   const client = new ApolloClient({
-    // uri: 'http://localhost:4000/graphql',
-    uri: 'https://matesrates.herokuapp.com/graphql',
+    uri: "https://matesrates.herokuapp.com/graphql",
+    cache: new InMemoryCache(),
 
-    cache: new InMemoryCache()
   });
 
   return (

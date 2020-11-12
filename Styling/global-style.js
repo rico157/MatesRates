@@ -12,18 +12,19 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontFamily: "Changa",
     color: "0F0508",
-    alignContent: "center",
+    textAlign: "center",
   },
   cardContainer: {
-    backgroundColor: "F8A677",
-    alignContent: "center",
+    backgroundColor: "#4E2D3E",
+    alignItems: "center",
     flex: 1,
   },
+  //#4E2D3E #F8A677
   imageContainer: {
     resizeMode: "contain",
   },
   appButtonContainer: {
-    backgroundColor: "4E2D3E",
+    backgroundColor: "#4E2D3E",
     borderRadius: 10,
     paddingVertical: 10,
     paddingHorizontal: 12,

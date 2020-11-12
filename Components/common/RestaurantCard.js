@@ -105,6 +105,7 @@ export default ({ restaurant, wishlist, navigation }) => {
   );
 };
 
+
 const styles = StyleSheet.create({
   card: {
     backgroundColor: '#5C374C'
