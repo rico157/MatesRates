@@ -1,77 +1,131 @@
-import React from "react";
-import { Text, StyleSheet } from "react-native";
-import { Card, Button, Icon } from "react-native-elements";
-import { wishlistCount } from "../../utils/utils";
-import styles from "../../Styling/global-style";
-import WishlistButton from "./WishlistButton";
+import React from 'react';
+import { Text, StyleSheet, View } from 'react-native';
+import { Card, Button, Icon } from 'react-native-elements';
+import { wishlistCount } from '../../utils/utils';
+import { iOSUIKit, iOSColors } from 'react-native-typography';
+import { TouchableOpacity } from 'react-native';
+
+import WishlistButton from './WishlistButton';
 
 export default ({ restaurant, wishlist, navigation }) => {
-  const { name, city, logo, id } = restaurant;
+  const { name, city, logo, id, address } = restaurant;
 
   // const count = wishlistCount(wishlist, id);
 
   return (
-    <Card style={{ backgroundColor: "#F8A677" }}>
-      <Card.Title
-        style={{
-          fontFamily: "Change One",
-          fontWeight: "bold",
-          color: "0F0508",
-        }}
+    <Card
+      containerStyle={{
+        borderRadius: 12,
+        borderColor: 'none'
+      }}
+      // containerStyle={{
+      //   // borderRadius: 12,
+      //   width: '100%',
+      //   marginLeft: 0,
+      //   marginRight: 0
+      // }}
+    >
+      <TouchableOpacity
+        key={id}
+        onPress={() =>
+          navigation.navigate('Restaurant', {
+            restaurant
+          })
+        }
       >
-        {name}
-      </Card.Title>
-      <Card.Divider />
-      <Card.Image
-        source={{
-          uri: logo,
-        }}
-      />
-      <Text
-        style={{
-          fontFamily: "Changa One",
-          marginBottom: 10,
-          textAlign: "center",
-        }}
-      >
-        {city.name}
-      </Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center'
+          }}
+        >
+          <Text style={[iOSUIKit.title3Emphasized, { color: iOSColors.black }]}>
+            {name}
+          </Text>
+
+          <WishlistButton restaurant_id={id} />
+        </View>
+        <Card.Divider />
+        <Card.Image
+          source={{
+            uri: logo
+          }}
+        />
+        <Card.Divider />
+        <Text
+          style={[
+            iOSUIKit.subhead,
+            { color: iOSColors.grey, textAlign: 'center', marginBottom: 10 }
+          ]}
+        >
+          {address}
+        </Text>
+      </TouchableOpacity>
+
       <Button
-        onPress={() => {
-          navigation.navigate("Restaurant", {
-            restaurant,
-          });
-        }}
-        icon={<Icon name="code" color="#ffffff" />}
+        onPress={() =>
+          navigation.navigate('ReviewForm', {
+            restaurant_id: id,
+            restaurant_name: name
+          })
+        }
+        // onPress={() => {
+        //   navigation.navigate('Restaurant', {
+        //     restaurant
+        //   });
+        // }}
+        // icon={<Icon name="code" color="#ffffff" />}
         buttonStyle={{
-          borderRadius: 0,
+          borderRadius: 20,
           marginLeft: 0,
           marginRight: 0,
           marginBottom: 0,
+          backgroundColor: '#FF8C61'
         }}
-        title="VIEW NOW"
+        title="RECOMMEND"
       />
-      <WishlistButton restaurant_id={id} />
-      {wishlist && <Text>Wished by: {wishlistCount(wishlist, id)}</Text>}
+
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'flex-end',
+          alignItems: 'center',
+          marginBottom: 2
+        }}
+      >
+        {wishlist ? (
+          <Text>WISHED BY: {wishlistCount(wishlist, id)} FRIENDS</Text>
+        ) : (
+          <Text></Text>
+        )}
+        {/* <WishlistButton restaurant_id={id} /> */}
+      </View>
     </Card>
   );
 };
 
-// const styles = StyleSheet.create({
-//   card: {
-//     // fontSize: 20,
-//     // display: 'flex',
-//     // alignItems: 'center',
-//     // justifyContent: 'center',
-//     // border: '1px solid darkblue',
-//     // marginTop: 15,
-//     // borderLeft: '0.25',
-//     // borderRight: '0.25',
-//     // width: '100'
-//   },
-//   name: {
-//     // fontSize: 30
-//   },
-//   image: {},
-//   users: {},
-// });
+
+const styles = StyleSheet.create({
+  card: {
+    backgroundColor: '#5C374C'
+    // fontSize: 20,
+    // display: 'flex',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    // border: '1px solid darkblue',
+    // marginTop: 15,
+    // borderLeft: '0.25',
+    // borderRight: '0.25',
+    // width: '100'
+  },
+  name: {
+    // fontSize: 30
+  },
+  image: {},
+  users: {}
+});
+
+// orange #FF8C61
+
+//

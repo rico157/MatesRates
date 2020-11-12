@@ -16,6 +16,7 @@ export const RESTAURANTS = gql`
           avatarURL
         }
       }
+      address
       city {
         name
       }
@@ -25,7 +26,7 @@ export const RESTAURANTS = gql`
 
 export const WISHLIST = gql`
   {
-    user(id: "5fabb8bbc919d40cd354493d") {
+    user(id: "5fad52e16b765b6024a6da5d") {
       wishlist {
         id
         name

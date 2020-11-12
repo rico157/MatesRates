@@ -7,8 +7,9 @@ import { ScrollView } from "react-native-gesture-handler";
 import {
   ALL_RESTAURANTS_IN_WISHLIST,
   RESTAURANTS,
-  GET_USERS,
-} from "../../utils/queries";
+  GET_USERS
+} from '../../utils/queries';
+import Loader from '../common/Loader';
 
 const HomePage = (props) => {
   const users = useQuery(GET_USERS);
@@ -16,11 +17,7 @@ const HomePage = (props) => {
   const wishlist = useQuery(ALL_RESTAURANTS_IN_WISHLIST);
 
   if (loading || wishlist.loading) {
-    return (
-      <View>
-        <Text>loading...</Text>
-      </View>
-    );
+    return <Loader />;
   }
 
   if (error) {

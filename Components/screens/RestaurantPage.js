@@ -6,12 +6,12 @@ import {
   View,
   SafeAreaView,
   FlatList,
-  Button,
-} from "react-native";
-import { Image } from "react-native-elements";
-import mock from "../../mock";
-import ReviewList from "../common/ReviewList";
-import { averageRatings } from "../../utils/utils";
+  Button
+} from 'react-native';
+import { Image } from 'react-native-elements';
+import mock from '../../mock';
+import ReviewList from '../common/ReviewList';
+import { averageRatings } from '../../utils/utils';
 
 const RestaurantPage = ({ navigation, route }) => {
   console.log(route.params.restaurant);
@@ -24,7 +24,12 @@ const RestaurantPage = ({ navigation, route }) => {
       <Text>{cuisine}</Text>
       <Text>{averageRatings(reviews)}</Text>
       <Button
-        onPress={() => navigation.navigate("ReviewForm", { restaurant_id: id })}
+        onPress={() =>
+          navigation.navigate('ReviewForm', {
+            restaurant_id: id,
+            restaurant_name: name
+          })
+        }
         title="Add Review"
       />
       <ReviewList reviews={reviews} />

@@ -30,7 +30,7 @@ export default ({ users, friends, navigation }) => {
             onPress={() => {
               addFriend({
                 variables: {
-                  user_id: '5fabb8bbc919d40cd354493d',
+                  user_id: '5fad52e16b765b6024a6da5d',
                   friend_id: user.id
                 }
               });
