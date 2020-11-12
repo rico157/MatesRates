@@ -1,7 +1,8 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, View } from 'react-native';
 import { Card, Button, Icon } from 'react-native-elements';
 import { wishlistCount } from '../../utils/utils';
+import { iOSUIKit, iOSColors } from 'react-native-typography';
 
 import WishlistButton from './WishlistButton';
 
@@ -11,38 +12,69 @@ export default ({ restaurant, wishlist, navigation }) => {
   // const count = wishlistCount(wishlist, id);
 
   return (
-    <Card style={styles.card}>
-      <Card.Title>{name}</Card.Title>
+    <Card
+    // containerStyle={{ backgroundColor: '#FAA275' }}
+    // wrapperStyle={{ backgroundColor: '#5C374C' }}
+    >
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}
+      >
+        <Text style={[iOSUIKit.title3Emphasized, { color: iOSColors.black }]}>
+          {name}
+        </Text>
+
+        <WishlistButton restaurant_id={id} />
+      </View>
       <Card.Divider />
       <Card.Image
         source={{
           uri: logo
         }}
       />
+      <Card.Divider />
       <Text style={{ marginBottom: 10, textAlign: 'center' }}>{city.name}</Text>
+
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}
+      >
+        {wishlist ? (
+          <Text>Wished by: {wishlistCount(wishlist, id)}</Text>
+        ) : (
+          <Text></Text>
+        )}
+        {/* <WishlistButton restaurant_id={id} /> */}
+      </View>
       <Button
         onPress={() => {
           navigation.navigate('Restaurant', {
             restaurant
           });
         }}
-        icon={<Icon name="code" color="#ffffff" />}
+        // icon={<Icon name="code" color="#ffffff" />}
         buttonStyle={{
-          borderRadius: 0,
+          borderRadius: 20,
           marginLeft: 0,
           marginRight: 0,
-          marginBottom: 0
+          marginBottom: 0,
+          backgroundColor: '#FF8C61'
         }}
         title="VIEW NOW"
       />
-      <WishlistButton restaurant_id={id} />
-      {wishlist && <Text>Wished by: {wishlistCount(wishlist, id)}</Text>}
     </Card>
   );
 };
 
 const styles = StyleSheet.create({
   card: {
+    backgroundColor: '#5C374C'
     // fontSize: 20,
     // display: 'flex',
     // alignItems: 'center',

@@ -11,8 +11,6 @@ const ReviewForm = ({ navigation, route }) => {
   const [body, setBody] = useState('');
   const [addReview] = useMutation(ADD_REVIEW);
 
-  console.log(navigation);
-
   return (
     <View style={styles.background}>
       <Card containerStyle={{ borderRadius: 12 }}>
@@ -41,6 +39,7 @@ const ReviewForm = ({ navigation, route }) => {
             setRating(rating);
           }}
         />
+
 
         <Input
           containerStyle={{ width: '80%', marginTop: 20 }}
