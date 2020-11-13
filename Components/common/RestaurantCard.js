@@ -10,18 +10,13 @@ import WishlistButton from './WishlistButton';
 export default ({ restaurant, wishlist, navigation }) => {
   const { name, city, logo, id, address } = restaurant;
   // const count = wishlistCount(wishlist, id);
+  console.log(wishlist);
   return (
     <Card
       containerStyle={{
         borderRadius: 12,
         borderColor: 'none'
       }}
-      // containerStyle={{
-      //   // borderRadius: 12,
-      //   width: '100%',
-      //   marginLeft: 0,
-      //   marginRight: 0
-      // }}
     >
       <TouchableOpacity
         key={id}

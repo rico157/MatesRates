@@ -12,7 +12,10 @@ const SearchNavigator = () => {
       <Stack.Screen
         name="FriendSearch"
         component={FriendSearchPage}
-        options={{ headerShown: false }}
+        options={{
+          headerShown: false,
+          cardStyle: { backgroundColor: '#5C374C' }
+        }}
       ></Stack.Screen>
       <Stack.Screen name="Restaurant" component={Restaurant}></Stack.Screen>
     </Stack.Navigator>

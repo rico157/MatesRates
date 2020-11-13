@@ -1,4 +1,3 @@
-import { SearchBar } from 'react-native-elements';
 import { View } from 'react-native';
 import React, { useEffect, useState, useRef } from 'react';
 import RestaurantList from '../common/RestaurantList';
@@ -9,6 +8,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScrollView } from 'react-native-gesture-handler';
+import SearchBar from '../common/SearchBar';
 
 export default function App(props) {
   const [search, setSearch] = useState('');
@@ -34,7 +34,6 @@ export default function App(props) {
   const prevSearch = prevRef(search);
   const prevFilter = prevRef(cuisineFilter);
   const prevCityFilter = prevRef(cityFilter);
-
   useEffect(() => {
     const copyRestaurants = [...restaurants];
     const newRestaurants = copyRestaurants.map((restaurant) => {
@@ -99,11 +98,8 @@ export default function App(props) {
 
   return (
     <SafeAreaView style={{ backgroundColor: '#5C374C' }}>
-      <SearchBar
-        placeholder="Type Here..."
-        onChangeText={updateSearch}
-        value={search}
-      />
+      <SearchBar search={search} updateSearch={updateSearch} />
+
       <View
         style={{
           flexDirection: 'row',
