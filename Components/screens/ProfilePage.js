@@ -5,10 +5,9 @@ import {
   StyleSheet,
   Text,
   View,
-  Button,
   Image,
   TouchableOpacity,
-  Modal,
+  Modal
 } from "react-native";
 import FriendForm from "../common/FriendAdder";
 import { GET_USER } from "../../utils/queries";
@@ -17,8 +16,7 @@ import { Avatar, Card, Button } from "react-native-elements";
 import styles from "../../Styling/global-style";
 import SearchFriendList from "../common/SearchFriendList";
 import WishList from "../screens/WishListPage";
-import {iOSUIKit, iOSColors} from 'react-native-typography'
-
+import { iOSUIKit, iOSColors } from "react-native-typography";
 
 const ProfileScreen = ({ navigation, route }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -51,10 +49,9 @@ const ProfileScreen = ({ navigation, route }) => {
           alignItems: "center"
         }}
       >
-        <Card.Title style={[
-                  iOSUIKit.largeTitleEmphasized,
-                  { color: iOSColors.black }
-                ]}>
+        <Card.Title
+          style={[iOSUIKit.largeTitleEmphasized, { color: iOSColors.black }]}
+        >
           {data.user.name}'s Profile
         </Card.Title>
 
@@ -66,23 +63,26 @@ const ProfileScreen = ({ navigation, route }) => {
             alignItems: "center"
           }}
           source={{
-            uri: data.user.avatarURL,
+            uri: data.user.avatarURL
           }}
         />
-        <View style={{
-          alignItems: "center"
-        }}>
-        <Text style={[
-                  iOSUIKit.largeTitleEmphasized,
-                  { color: iOSColors.black }
-                ]}>{data.user.username}</Text>
+        <View
+          style={{
+            alignItems: "center"
+          }}
+        >
+          <Text
+            style={[iOSUIKit.largeTitleEmphasized, { color: iOSColors.black }]}
+          >
+            {data.user.username}
+          </Text>
 
-        <Text style={[
-                  iOSUIKit.largeTitleEmphasized,
-                  { color: iOSColors.black },
-                ]}>
-          Friends({data.user.friends.length})
-        </Text>
+          <Text
+            style={[iOSUIKit.largeTitleEmphasized, { color: iOSColors.black }]}
+          >
+            Friends({data.user.friends.length})
+          </Text>
+        </View>
       </Card>
 
       <Modal visible={modalOpen} animationType="slide">
@@ -122,7 +122,7 @@ const ProfileScreen = ({ navigation, route }) => {
           >
             <Text style={{ color: "white" }}>Hide Wishlist</Text>
           </TouchableOpacity>
-          <WishList></WishList>
+          <WishList />
         </View>
       </Modal>
 
@@ -142,17 +142,11 @@ const ProfileScreen = ({ navigation, route }) => {
 const avatar = StyleSheet.create({
   logo: {
     width: 50,
-    height: 100,
+    height: 100
   },
-  borderButton: {
-    alignItems: "center",
-    width: "100%",
-    borderWidth: "2px",
-    borderColor: "white"
 
-  },
   card: {
-    backgroundColor: "#4E2D3E",
+    backgroundColor: "#4E2D3E"
   },
   modalToggle: {
     backgroundColor: "#F8A677",
@@ -160,8 +154,8 @@ const avatar = StyleSheet.create({
     marginBottom: 10,
     padding: 10,
     borderRadius: 40,
-    alignSelf: "center",
-  },
+    alignSelf: "center"
+  }
 });
 
 export default ProfileScreen;
