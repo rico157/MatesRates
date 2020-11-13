@@ -1,10 +1,13 @@
 import { SearchBar } from 'react-native-elements';
+import { View } from 'react-native';
 import React, { useEffect, useState, useRef } from 'react';
 import RestaurantList from '../common/RestaurantList';
 import { RESTAURANTS } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 import DropDownPicker from 'react-native-dropdown-picker';
 import Icon from 'react-native-vector-icons/Feather';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function App(props) {
   const [search, setSearch] = useState('');
@@ -93,65 +96,76 @@ export default function App(props) {
   });
 
   return (
-    <>
-      <DropDownPicker
-        items={[
-          {
-            label: 'All Cuisines',
-            value: 'All Cuisines',
-            icon: () => <Icon name="flag" size={18} color="#900" />,
-            hidden: false,
-          },
-          ...cuisine.map((r) => {
-            return {
-              label: r.cuisine,
-              value: r.cuisine,
-              icon: () => <Icon name="flag" size={18} color="#900" />,
-              hidden: false,
-            };
-          }),
-        ]}
-        defaultValue={cuisineFilter}
-        containerStyle={{ height: 40 }}
-        style={{ backgroundColor: '#fafafa' }}
-        itemStyle={{
-          justifyContent: 'flex-start',
-        }}
-        onChangeItem={(item) => setCuisine(item.value)}
-        dropDownStyle={{ backgroundColor: '#fafafa' }}
-      />
+    <SafeAreaView>
       <SearchBar
         placeholder="Type Here..."
         onChangeText={updateSearch}
         value={search}
       />
-      <DropDownPicker
-        items={[
-          {
-            label: 'All Cities',
-            value: 'All Cities',
-            icon: () => <Icon name="flag" size={18} color="#900" />,
-            hidden: false,
-          },
-          ...cities.map((restaurant) => {
-            return {
-              label: restaurant.city.name,
-              value: restaurant.city.name,
-              icon: () => <Icon name="flag" size={18} color="#900" />,
-              hidden: false,
-            };
-          }),
-        ]}
-        defaultValue={cityFilter}
-        containerStyle={{ height: 40 }}
-        style={{ backgroundColor: '#fafafa' }}
-        itemStyle={{
-          justifyContent: 'flex-start',
+      <View
+        style={{
+          flexDirection: 'row',
+          zIndex: 10,
+          justifyContent: 'space-around'
         }}
-        onChangeItem={(item) => setCity(item.value)}
-        dropDownStyle={{ backgroundColor: '#fafafa' }}
-      />
-      <RestaurantList restaurants={filteredRestaurants} {...props} />
-    </>
+      >
+        <DropDownPicker
+          items={[
+            {
+              label: 'All Cuisines',
+              value: 'All Cuisines',
+              icon: () => <Icon name="flag" size={18} color="#900" />,
+              hidden: false
+            },
+            ...cuisine.map((r) => {
+              return {
+                label: r.cuisine,
+                value: r.cuisine,
+                icon: () => <Icon name="flag" size={18} color="#900" />,
+                hidden: false
+              };
+            })
+          ]}
+          defaultValue={cuisineFilter}
+          containerStyle={{ height: 40, width: '50%' }}
+          style={{ backgroundColor: '#fafafa' }}
+          itemStyle={{
+            justifyContent: 'flex-start'
+          }}
+          onChangeItem={(item) => setCuisine(item.value)}
+          dropDownStyle={{ backgroundColor: '#fafafa' }}
+        />
+
+        <DropDownPicker
+          items={[
+            {
+              label: 'All Cities',
+              value: 'All Cities',
+              icon: () => <Icon name="flag" size={18} color="#900" />,
+              hidden: false
+            },
+            ...cities.map((restaurant) => {
+              return {
+                label: restaurant.city.name,
+                value: restaurant.city.name,
+                icon: () => <Icon name="flag" size={18} color="#900" />,
+                hidden: false
+              };
+            })
+          ]}
+          defaultValue={cityFilter}
+          containerStyle={{ height: 40, width: '50%' }}
+          style={{ backgroundColor: '#fafafa' }}
+          itemStyle={{
+            justifyContent: 'flex-start'
+          }}
+          onChangeItem={(item) => setCity(item.value)}
+          dropDownStyle={{ backgroundColor: '#fafafa' }}
+        />
+      </View>
+      <View>
+        <RestaurantList restaurants={filteredRestaurants} {...props} />
+      </View>
+    </SafeAreaView>
   );
 }
