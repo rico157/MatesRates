@@ -7,6 +7,10 @@ export const RESTAURANTS = gql`
       name
       cuisine
       logo
+      description
+      address
+      information
+      phone
       reviews {
         body
         rating
