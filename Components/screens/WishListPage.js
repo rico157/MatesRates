@@ -1,5 +1,5 @@
-import "react-native-gesture-handler";
-import React, { Component } from "react";
+import 'react-native-gesture-handler';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,12 +7,12 @@ import {
   SafeAreaView,
   FlatList,
   Image,
-  Button
-} from "react-native";
-import { useQuery, gql } from "@apollo/client";
-import RestaurantList from "../common/RestaurantList";
-import { WISHLIST, ALL_RESTAURANTS_IN_WISHLIST } from "../../utils/queries";
-import { ScrollView } from "react-native-gesture-handler";
+  Button,
+} from 'react-native';
+import { useQuery, gql } from '@apollo/client';
+import RestaurantList from '../common/RestaurantList';
+import { WISHLIST, ALL_RESTAURANTS_IN_WISHLIST } from '../../utils/queries';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function WishList(props) {
   const { loading, error, data } = useQuery(WISHLIST);
@@ -36,7 +36,6 @@ export default function WishList(props) {
 
   return (
     <ScrollView>
-      <Text>This is my WIshList</Text>
       <RestaurantList
         restaurants={data.user.wishlist}
         wishlist={wishlist.data}
@@ -59,5 +58,5 @@ const styles = StyleSheet.create({
   },
   name: {
     // fontSize: '30px'
-  }
+  },
 });
