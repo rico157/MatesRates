@@ -9,9 +9,7 @@ import WishlistButton from './WishlistButton';
 
 export default ({ restaurant, wishlist, navigation }) => {
   const { name, city, logo, id, address } = restaurant;
-
   // const count = wishlistCount(wishlist, id);
-
   return (
     <Card
       containerStyle={{
@@ -123,8 +121,7 @@ const styles = StyleSheet.create({
   name: {
     // fontSize: 30
   },
-  image: {},
-  users: {}
+  image: {}
 });
 
 // orange #FF8C61

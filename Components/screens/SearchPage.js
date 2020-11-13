@@ -2,7 +2,7 @@ import { SearchBar } from 'react-native-elements';
 import { View } from 'react-native';
 import React, { useEffect, useState, useRef } from 'react';
 import RestaurantList from '../common/RestaurantList';
-import { RESTAURANTS } from '../../utils/queries';
+import { ALL_RESTAURANTS_IN_WISHLIST, RESTAURANTS } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 import DropDownPicker from 'react-native-dropdown-picker';
 import Icon from 'react-native-vector-icons/Feather';
@@ -16,6 +16,7 @@ export default function App(props) {
   const [cityFilter, setCity] = useState('All Cities');
   const [filteredRestaurants, setRestaurants] = useState([]);
   const { data } = useQuery(RESTAURANTS);
+  const wishlist = useQuery(ALL_RESTAURANTS_IN_WISHLIST);
   const { restaurants } = data;
 
   const updateSearch = (search) => {
@@ -167,7 +168,11 @@ export default function App(props) {
         />
       </View>
       <View>
-        <RestaurantList restaurants={filteredRestaurants} {...props} />
+        <RestaurantList
+          restaurants={filteredRestaurants}
+          {...props}
+          wishlist={wishlist.data}
+        />
       </View>
     </SafeAreaView>
   );

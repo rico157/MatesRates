@@ -27,7 +27,6 @@ const HomePage = (props) => {
       </View>
     );
   }
-
   return (
     <ScrollView style={{ backgroundColor: '#5C374C' }}>
       <RestaurantList
