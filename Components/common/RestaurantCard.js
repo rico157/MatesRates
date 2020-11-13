@@ -44,7 +44,10 @@ export default ({ restaurant, wishlist, navigation }) => {
             {name}
           </Text>
 
-          <WishlistButton restaurant_id={id} />
+          <WishlistButton
+            restaurant_id={id}
+            myWishlist={wishlist.users[0].wishlist}
+          />
         </View>
         <Card.Divider />
         <Card.Image
@@ -99,7 +102,6 @@ export default ({ restaurant, wishlist, navigation }) => {
         ) : (
           <Text></Text>
         )}
-        {/* <WishlistButton restaurant_id={id} /> */}
       </View>
     </Card>
   );
