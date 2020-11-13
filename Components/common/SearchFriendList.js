@@ -1,3 +1,4 @@
+
 import { useMutation } from "@apollo/client";
 import React, { useState, useEffect } from "react";
 import { View, ScrollView } from "react-native";
@@ -22,6 +23,7 @@ export default ({ users, friends, navigation }) => {
         containerStyle={{
           borderRadius: 12,
           borderColor: "none",
+
         }}
       >
         {users.map((user) => (
@@ -43,6 +45,7 @@ export default ({ users, friends, navigation }) => {
                     user_id: "5fad52e16b765b6024a6da5d",
                     friend_id: user.id,
                   },
+
                 });
                 setFriends([...friendList, user]);
               }}

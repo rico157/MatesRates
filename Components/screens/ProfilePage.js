@@ -13,10 +13,12 @@ import {
 import FriendForm from "../common/FriendAdder";
 import { GET_USER } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
-import { Avatar, Card } from "react-native-elements";
+import { Avatar, Card, Button } from "react-native-elements";
 import styles from "../../Styling/global-style";
 import SearchFriendList from "../common/SearchFriendList";
 import WishList from "../screens/WishListPage";
+import {iOSUIKit, iOSColors} from 'react-native-typography'
+
 
 const ProfileScreen = ({ navigation, route }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -44,23 +46,42 @@ const ProfileScreen = ({ navigation, route }) => {
           backgroundColor: "#FFFFFF",
           borderColor: "black",
           borderRadius: 12,
+          width: "90%",
+          height: "60%",
+          alignItems: "center"
         }}
       >
-        <Card.Title style={styles.headerText}>
+        <Card.Title style={[
+                  iOSUIKit.largeTitleEmphasized,
+                  { color: iOSColors.black }
+                ]}>
           {data.user.name}'s Profile
         </Card.Title>
 
-        <Card.Image
+        <Image
           rounded
-          size="large"
+          style={{
+            width: 250,
+            height: 250,
+            alignItems: "center"
+          }}
           source={{
             uri: data.user.avatarURL,
           }}
         />
-        <Text style={styles.contentText}>{data.user.username}</Text>
+        <View style={{
+          alignItems: "center"
+        }}>
+        <Text style={[
+                  iOSUIKit.largeTitleEmphasized,
+                  { color: iOSColors.black }
+                ]}>{data.user.username}</Text>
 
-        <Text style={styles.contentText}>
-          Number of friends: {data.user.friends.length}
+        <Text style={[
+                  iOSUIKit.largeTitleEmphasized,
+                  { color: iOSColors.black },
+                ]}>
+          Friends({data.user.friends.length})
         </Text>
       </Card>
 
@@ -124,8 +145,11 @@ const avatar = StyleSheet.create({
     height: 100,
   },
   borderButton: {
-    flex: 0.5,
-    justifyContent: "space-evenly",
+    alignItems: "center",
+    width: "100%",
+    borderWidth: "2px",
+    borderColor: "white"
+
   },
   card: {
     backgroundColor: "#4E2D3E",

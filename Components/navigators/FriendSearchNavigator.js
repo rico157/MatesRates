@@ -12,9 +12,37 @@ const SearchNavigator = () => {
       <Stack.Screen
         name="FriendSearch"
         component={FriendSearchPage}
-        options={{ headerShown: false }}
+        options={{
+          headerShown: false,
+          cardStyle: { backgroundColor: '#5C374C' }
+        }}
       ></Stack.Screen>
-      <Stack.Screen name="Restaurant" component={Restaurant}></Stack.Screen>
+      <Stack.Screen
+        name="Restaurant"
+        component={Restaurant}
+        options={{
+          headerLayoutPreset: 'center',
+          headerStyle: {
+            backgroundColor: '#944D6F',
+          },
+
+          headerTitle: (props) => (
+            <View
+              style={{ flexDirection: 'row', justifyContent: 'flex-start' }}
+            >
+              <LogoTitle {...props} />
+              <Text
+                style={[
+                  iOSUIKit.largeTitleEmphasized,
+                  { color: iOSColors.white },
+                ]}
+              >
+                Restaurant
+              </Text>
+            </View>
+          ),
+        }}
+      ></Stack.Screen>
     </Stack.Navigator>
   );
 };
