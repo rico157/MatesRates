@@ -9,21 +9,14 @@ import WishlistButton from './WishlistButton';
 
 export default ({ restaurant, wishlist, navigation }) => {
   const { name, city, logo, id, address } = restaurant;
-
   // const count = wishlistCount(wishlist, id);
-
+  console.log(wishlist);
   return (
     <Card
       containerStyle={{
         borderRadius: 12,
         borderColor: 'none'
       }}
-      // containerStyle={{
-      //   // borderRadius: 12,
-      //   width: '100%',
-      //   marginLeft: 0,
-      //   marginRight: 0
-      // }}
     >
       <TouchableOpacity
         key={id}
@@ -44,7 +37,10 @@ export default ({ restaurant, wishlist, navigation }) => {
             {name}
           </Text>
 
-          <WishlistButton restaurant_id={id} />
+          <WishlistButton
+            restaurant_id={id}
+            myWishlist={wishlist.users[0].wishlist}
+          />
         </View>
         <Card.Divider />
         <Card.Image
@@ -99,7 +95,6 @@ export default ({ restaurant, wishlist, navigation }) => {
         ) : (
           <Text></Text>
         )}
-        {/* <WishlistButton restaurant_id={id} /> */}
       </View>
     </Card>
   );
@@ -122,8 +117,7 @@ const styles = StyleSheet.create({
   name: {
     // fontSize: 30
   },
-  image: {},
-  users: {}
+  image: {}
 });
 
 // orange #FF8C61
