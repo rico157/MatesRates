@@ -8,11 +8,11 @@ import {
   SafeAreaView,
   FlatList,
 } from 'react-native';
-import { Image } from 'react-native-elements';
 import ReviewList from '../common/ReviewList';
 import { averageRatings } from '../../utils/utils';
-import { Card, Tile, Button } from "react-native-elements";
+import { Card, Button, ListItem, Icon } from "react-native-elements";
 import styles from "../../Styling/global-style";
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const RestaurantPage = ({ navigation, route }) => {
   const { name, cuisine, city, id, reviews, logo, description, address, phone, information } = route.params.restaurant;
@@ -35,19 +35,40 @@ const RestaurantPage = ({ navigation, route }) => {
           size="large"
           source={{uri: logo}}
           />
+          {/* <ion-icon name="restaurant-outline"></ion-icon> */}
+          
       </Card>
-      <View style= {{backgroundColor: "white", margin: "15px", padding: "8px", borderRadius: 8}}>
-        <Text style={{color: "0F0508", fontSize: "12pt"}}>City: {city.name}</Text>
-        <Text style={{color: "0F0508", fontSize: "12pt"}}>Cuisine: {cuisine}</Text>
-        <Text style={{color: "0F0508", fontSize: "12pt"}}>Average rating: {averageRatings(reviews)}</Text>    
-        <Text> </Text>
-        <Text style={{color: "0F0508", fontSize: "12pt"}}>{description}</Text>
-        <Text> </Text>
-        <Text style={{color: "0F0508", fontSize: "12pt", textDecorationLine: "underline"}}>Contact Us</Text>
-        <Text style={{color: "0F0508", fontSize: "12pt"}}>Address: {address}</Text>
-        <Text style={{color: "0F0508", fontSize: "12pt"}}>Phone: {phone}</Text>
-        <Text> </Text>
-        <Text style={{color: "0F0508", fontSize: "12pt"}}>Opening times: {information}</Text>
+      <View style= {{backgroundColor: "white", margin: 15, padding: 8, borderRadius: 8}}>
+        <ListItem>
+          <ListItem.Content>
+          <ListItem.Title>{description}</ListItem.Title>
+          </ListItem.Content>
+        </ListItem>
+        <ListItem><Ionicons name="ios-restaurant" size={20}/>
+          <ListItem.Content>
+          <ListItem.Title>{cuisine}</ListItem.Title>
+          </ListItem.Content>
+        </ListItem>
+        <ListItem><Ionicons name="ios-phone-portrait" size={20}/>
+          <ListItem.Content>
+          <ListItem.Title>{phone}</ListItem.Title>
+          </ListItem.Content>
+        </ListItem>
+        <ListItem><Ionicons name="ios-compass" size={20}/>
+          <ListItem.Content>
+          <ListItem.Title>{address}</ListItem.Title>
+          </ListItem.Content>
+        </ListItem>
+        <ListItem><Ionicons name="ios-calendar" size={20}/>
+          <ListItem.Content>
+          <ListItem.Title>{information}</ListItem.Title>
+          </ListItem.Content>
+        </ListItem>
+        <ListItem>
+          <ListItem.Content>
+          <ListItem.Title>Average rating: {averageRatings(reviews)}  <Ionicons name="ios-star" size={20}/></ListItem.Title>
+          </ListItem.Content>
+        </ListItem>
       </View>
       <Button
       buttonStyle={{
