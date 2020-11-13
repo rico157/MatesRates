@@ -6,6 +6,7 @@ import { RESTAURANTS } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 import DropDownPicker from 'react-native-dropdown-picker';
 import Icon from 'react-native-vector-icons/Feather';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -114,14 +115,16 @@ export default function App(props) {
             {
               label: 'All Cuisines',
               value: 'All Cuisines',
-              icon: () => <Icon name="flag" size={18} color="#900" />,
+              icon: () => <Ionicons name="ios-pizza" size={18} color="#900" />,
               hidden: false
             },
             ...cuisine.map((r) => {
               return {
                 label: r.cuisine,
                 value: r.cuisine,
-                icon: () => <Icon name="flag" size={18} color="#900" />,
+                icon: () => (
+                  <Ionicons name="ios-pizza" size={18} color="#900" />
+                ),
                 hidden: false
               };
             })
@@ -141,14 +144,14 @@ export default function App(props) {
             {
               label: 'All Cities',
               value: 'All Cities',
-              icon: () => <Icon name="flag" size={18} color="#900" />,
+              icon: () => <Icon name="map-pin" size={18} color="#900" />,
               hidden: false
             },
             ...cities.map((restaurant) => {
               return {
                 label: restaurant.city.name,
                 value: restaurant.city.name,
-                icon: () => <Icon name="flag" size={18} color="#900" />,
+                icon: () => <Icon name="map-pin" size={18} color="#900" />,
                 hidden: false
               };
             })
