@@ -9,6 +9,7 @@ import SearchBarNavigator from './Components/navigators/SearchBarNavigator';
 import FriendSearch from './Components/navigators/FriendSearchNavigator';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import LoginPage from './Components/screens/LoginPage';
 
 const Tab = createBottomTabNavigator();
 
@@ -62,36 +63,17 @@ function App() {
       </>
     );
   }
-
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    Header: {
-      color: 'red',
-    },
-  });
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  Header: {
+    color: 'red',
+  },
+});
 
 export default App;
-
-//       } else {
-//         return (
-//           <>
-//           <ApolloProvider client={client}>
-//             <NavigationContainer>
-//               <Tab.Navigator>
-//                 <Tab.Screen name="Home" component={HomeScreenNavigator} />
-//                 <Tab.Screen name="Search" component={SearchBarNavigator} />
-//                 <Tab.Screen name="Map" component={MapView} />
-//                 <Tab.Screen name="Profile" component={ProfileNavigator} />
-//               </Tab.Navigator>
-//             </NavigationContainer>
-//           </ApolloProvider>
-//           </>
-//         )
-//       }
-// }

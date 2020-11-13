@@ -1,30 +1,30 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   headerText: {
     fontSize: 20,
-    fontFamily: "Changa One",
-    fontWeight: "Bold",
-    color: "0F0508",
-    alignContent: "center",
+    fontFamily: 'Changa One',
+    fontWeight: 'bold',
+    color: '#0F0508',
+    alignContent: 'center',
   },
   contentText: {
     fontSize: 15,
-    fontFamily: "Changa",
-    color: "0F0508",
-    textAlign: "center",
+    fontFamily: 'Changa',
+    color: '#0F0508',
+    textAlign: 'center',
   },
   cardContainer: {
-    backgroundColor: "#4E2D3E",
-    alignItems: "center",
+    backgroundColor: '#4E2D3E',
+    alignItems: 'center',
     flex: 1,
   },
   //#4E2D3E #F8A677
   imageContainer: {
-    resizeMode: "contain",
+    resizeMode: 'contain',
   },
   appButtonContainer: {
-    backgroundColor: "#4E2D3E",
+    backgroundColor: '#4E2D3E',
     borderRadius: 10,
     paddingVertical: 10,
     paddingHorizontal: 12,
