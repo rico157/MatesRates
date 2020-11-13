@@ -96,7 +96,7 @@ export default function App(props) {
   });
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ backgroundColor: '#5C374C' }}>
       <SearchBar
         placeholder="Type Here..."
         onChangeText={updateSearch}
