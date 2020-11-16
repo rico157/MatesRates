@@ -1,4 +1,5 @@
-# **Mates Rates - Mobile App** | [Try Me - EXPO CLIENT REQUIRED*]() 👀
+# **Mates Rates - Mobile App** | [Try Me](https://expo.io/@rico157/projects/MatesRates)  - EXPO CLIENT REQUIRED*👀
+
 [![Website expo.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](http://expo.io/)
 [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://github.com/PopThieves/MatesRates)
 [![GitHub contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)](https://github.com/PopThieves/MatesRates/graphs/contributors/)
