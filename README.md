@@ -1,4 +1,4 @@
-# **Mates Rates - Mobile App** | [Try Me](https://expo.io/@rico157/projects/MatesRates)  - EXPO CLIENT REQUIRED*👀
+# **Mates Rates - Mobile App** | [Try Me](https://expo.io/@rico157/projects/MatesRates)  - Android* / EXPO CLIENT REQUIRED*👀
 
 [![Website expo.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](http://expo.io/)
 [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://github.com/PopThieves/MatesRates)
@@ -6,7 +6,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/Naereen/StrapDown.js.svg)](https://github.com/PopThieves/MatesRates/issues/)
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/Naereen/StrapDown.js.svg)](https://github.com/PopThieves/MatesRates/pull/)
 
-Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description 
+Looking for somewhere to eat these days can be quite a painful experience. Review sites are littered with meaningless and often times sponsored judgements which leave you non the wiser to the quality of the restaurant you wish to visit. MatesRates allows you to search restaurants around the country, see trustworthy reviews and rating from friends and add restaurants you like the look of to your own wish list!
   
   
   ![img](https://github.com/PopThieves/MatesRates/blob/dev/main-screens.png)
