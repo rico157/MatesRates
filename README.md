@@ -1,5 +1,5 @@
 # **Mates Rates - Mobile App** | [Try Me on Android](https://expo.io/@rico157/projects/MatesRates) 
-### EXPO CLIENT REQUIRED*👀
+### Back End: [GraphiQL HOST](https://matesrates.herokuapp.com/graphql) / [GitHub](https://github.com/BenSymons/BE-Mates-Rates)
 
 [![Website expo.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://expo.io/@rico157/projects/MatesRates)
 [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://github.com/PopThieves/MatesRates)
@@ -14,11 +14,11 @@ Looking for somewhere to eat these days can be quite a painful experience. Revie
   ---
 ##### Tech Stack
 * Framework: [React Native](https://reactjs.org/) / [Expo](https://reactjs.org/)
-* UI Libray: [Elements-UI](https://material-ui.com/)
+* UI Library: [Elements-UI](https://material-ui.com/)
 * API Queries: [Apollo](https://www.apollographql.com/)
 
 
-###### Back End: [GraphiQL](https://matesrates.herokuapp.com/graphql) / [GitHub](https://github.com/BenSymons/BE-Mates-Rates)
+###### Back End
 * API: [GraphQL](https://graphql.org/)
 * Server: [express.js](https://expressjs.com/)
 * Database: [MongoDB](cloud.mongodb.com) 
