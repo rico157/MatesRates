@@ -1,5 +1,5 @@
 # **Mates Rates - Mobile App** | [Try Me on Android](https://expo.io/@rico157/projects/MatesRates) 
-### Back End: [GraphiQL HOST](https://matesrates.herokuapp.com/graphql) / [GitHub](https://github.com/BenSymons/BE-Mates-Rates)
+### Back End: [GraphiQL HOST](https://matesrates.herokuapp.com/graphql) / [GitHub](https://github.com/rico157/BE-Mates-Rates-1)
 
 [![Website expo.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://expo.io/@rico157/projects/MatesRates)
 [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://github.com/PopThieves/MatesRates)
