@@ -7,12 +7,11 @@
 
 
 Looking for somewhere to eat these days can be quite a painful experience. Review sites are littered with meaningless and often times sponsored judgements which leave you non the wiser to the quality of the restaurant you wish to visit. MatesRates allows you to search restaurants around the country, see trustworthy reviews and rating from friends and add restaurants you like the look of to your own wish list!
-  
-  
-  ![img](https://github.com/PopThieves/MatesRates/blob/dev/main-screens.png)
+   ![img](https://github.com/rico157/MatesRates/blob/dev/banner.jpg)
 
-  ---
-##### Tech Stack
+---
+ 
+  ##### Tech Stack
 * Framework: [React Native](https://reactjs.org/) / [Expo](https://reactjs.org/)
 * UI Library: [Elements-UI](https://material-ui.com/)
 * API Queries: [Apollo](https://www.apollographql.com/)
@@ -28,8 +27,26 @@ Looking for somewhere to eat these days can be quite a painful experience. Revie
 ##### TDD 
 * Testing Framework: [Jest](https://jestjs.io/) 
 ---
+  
+![img](https://github.com/PopThieves/MatesRates/blob/dev/main-screens.png)
+
+---
 
 
+### Preject Development & Agile Methodologies
+* Pair Programming
+* Daily Stand Ups
+* Kanban Board - [Trello](https://www.trello.com)
+* Spiking new technologies
+* MVP - Minimum Viable Product
+* User Stories
+
+
+![trello](https://github.com/rico157/MatesRates/blob/dev/trello.png)
+
+
+
+  
 
 ## How to install
 
